@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoices · Acme</title>
+  <link rel="stylesheet" href="../../henry.css">
+</head>
+<body>
+  <header>
+    <h1>Acme</h1>
+    <nav><ul><li><a href="app-shell.html">Dashboard</a></li><li><a href="#" aria-current="page">Invoices</a></li><li><a href="settings.html">Settings</a></li></ul></nav>
+  </header>
+
+  <main class="container">
+    <div class="cluster between" style="margin-block-end: var(--space-6)">
+      <hgroup style="margin:0">
+        <h1 style="font-size: var(--text-2xl)">Invoices</h1>
+        <p style="font-size: var(--text-md)">42 total, $7,340 outstanding</p>
+      </hgroup>
+      <div class="cluster">
+        <button type="button" class="secondary">Export</button>
+        <button type="button">New invoice</button>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Filter">
+      <ul>
+        <li><a href="#" aria-current="page">All</a></li>
+        <li><a href="#">Paid</a></li>
+        <li><a href="#">Pending</a></li>
+        <li><a href="#">Overdue</a></li>
+        <li><a href="#">Draft</a></li>
+      </ul>
+    </nav>
+
+    <figure style="margin-block-start: var(--space-6)">
+      <table>
+        <thead><tr><th>Invoice</th><th>Customer</th><th>Status</th><th>Amount</th><th>Issued</th><th>Due</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><a href="#">INV-0042</a></td><td>Acme Corp</td><td><span class="badge success">Paid</span></td><td>$1,200.00</td><td>Sep 10</td><td>Sep 24</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+          <tr><td><a href="#">INV-0041</a></td><td>Globex</td><td><span class="badge warning">Pending</span></td><td>$860.00</td><td>Sep 16</td><td>Sep 30</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+          <tr><td><a href="#">INV-0040</a></td><td>Initech</td><td><span class="badge danger">Overdue</span></td><td>$2,410.50</td><td>Aug 29</td><td>Sep 12</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+          <tr><td><a href="#">INV-0039</a></td><td>Umbrella</td><td><span class="badge success">Paid</span></td><td>$310.00</td><td>Aug 20</td><td>Sep 3</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+          <tr><td><a href="#">INV-0038</a></td><td>Hooli</td><td><span class="badge">Draft</span></td><td>$5,000.00</td><td>—</td><td>—</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+          <tr><td><a href="#">INV-0037</a></td><td>Vandelay</td><td><span class="badge success">Paid</span></td><td>$740.00</td><td>Aug 2</td><td>Aug 16</td><td><button type="button" class="ghost small">Edit</button></td></tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <div class="cluster between">
+      <small>Showing 1–6 of 42</small>
+      <div class="cluster">
+        <button type="button" class="secondary small" disabled>Previous</button>
+        <button type="button" class="secondary small">Next</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2026 Acme</footer>
+</body>
+</html>

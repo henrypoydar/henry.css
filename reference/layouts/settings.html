@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings · Acme</title>
+  <link rel="stylesheet" href="../../henry.css">
+</head>
+<body>
+  <header>
+    <h1>Acme</h1>
+    <nav><ul><li><a href="app-shell.html">Dashboard</a></li><li><a href="#" aria-current="page">Settings</a></li></ul></nav>
+  </header>
+
+  <aside>
+    <nav aria-label="Settings">
+      <ul>
+        <li><a href="#" aria-current="page">Profile</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Billing</a></li>
+        <li><a href="#">Integrations</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="container narrow" style="margin-inline: 0">
+      <hgroup>
+        <h2>Profile</h2>
+        <p>How you appear to other members of the workspace.</p>
+      </hgroup>
+
+      <form onsubmit="return false">
+        <label for="name">Full name</label>
+        <input id="name" type="text" value="Ada Lovelace">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" value="ada@example.com">
+        <small>Used for sign-in and notifications.</small>
+
+        <label for="tz">Time zone</label>
+        <select id="tz">
+          <option>America/New_York</option>
+          <option>America/Los_Angeles</option>
+          <option>Europe/London</option>
+        </select>
+
+        <label for="bio">Bio</label>
+        <textarea id="bio">Analytical engine enthusiast.</textarea>
+
+        <hr>
+
+        <fieldset>
+          <legend>Notifications</legend>
+          <label><input type="checkbox" role="switch" checked> Email me when an invoice is paid</label>
+          <label><input type="checkbox" role="switch" checked> Email me when an invoice is overdue</label>
+          <label><input type="checkbox" role="switch"> Weekly summary</label>
+        </fieldset>
+
+        <hr>
+
+        <div class="cluster between">
+          <div class="cluster">
+            <button type="submit">Save changes</button>
+            <button type="button" class="ghost">Cancel</button>
+          </div>
+          <button type="button" class="danger">Delete account</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

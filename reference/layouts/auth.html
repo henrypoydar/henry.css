@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · Acme</title>
+  <link rel="stylesheet" href="../../henry.css">
+</head>
+<body>
+  <header>
+    <h1>Acme</h1>
+    <nav><ul><li><a href="#">Create account</a></li></ul></nav>
+  </header>
+
+  <main class="container narrow" style="max-width: 24rem; padding-block-start: var(--space-16)">
+    <article>
+      <header>
+        <h2>Sign in</h2>
+        <p>Welcome back.</p>
+      </header>
+      <form onsubmit="return false">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+        <label for="pw">Password</label>
+        <input id="pw" type="password" autocomplete="current-password">
+        <label><input type="checkbox"> Remember me</label>
+        <div class="cluster between" style="margin-block-start: var(--space-4)">
+          <button type="submit">Sign in</button>
+          <a href="#"><small>Forgot password?</small></a>
+        </div>
+      </form>
+    </article>
+  </main>
+
+  <footer>© 2026 Acme · <a href="#">Privacy</a> · <a href="#">Terms</a></footer>
+</body>
+</html>

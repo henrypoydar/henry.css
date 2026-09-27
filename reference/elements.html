@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henry · Elements</title>
+  <link rel="stylesheet" href="../henry.css">
+  <style>
+    /* Specimen chrome only. */
+    main { max-width: var(--container-max); margin-inline: auto; width: 100%; }
+    main > section { margin-block-end: var(--space-16); }
+    main > section > h2:first-child {
+      font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-fg-muted);
+      text-transform: uppercase; letter-spacing: 0.04em; margin-block-end: var(--space-6);
+      padding-block-end: var(--space-2); border-block-end: 1px solid var(--color-border);
+    }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: var(--space-6); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Henry</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Variables</a></li>
+        <li><a href="elements.html" aria-current="page">Elements</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="layouts/">Layouts</a></li>
+        <li><a href="#" data-toggle-theme>Toggle theme</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Headings</h2>
+      <h1>Heading one, the page title</h1>
+      <h2>Heading two, a section</h2>
+      <h3>Heading three, a subsection</h3>
+      <h4>Heading four</h4>
+      <h5>Heading five</h5>
+      <h6>Heading six</h6>
+    </section>
+
+    <section>
+      <h2>Text</h2>
+      <p>Body text is 16px with a line height of 1.5. Most reading happens here, so it gets the most room. A paragraph can hold <a href="#">a link</a>, <strong>strong text</strong>, <em>emphasis</em>, <code>inline code</code>, a keyboard shortcut like <kbd>⌘</kbd> <kbd>K</kbd>, <mark>highlighted text</mark>, an <abbr title="abbreviation">abbr</abbr>, and <small>small print</small>.</p>
+      <p>A second paragraph follows with the standard flow spacing. Paragraphs, lists, tables, and figures all share the same bottom margin, and the last child in a container drops it.</p>
+      <blockquote>
+        Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
+        <cite>Antoine de Saint-Exupéry</cite>
+      </blockquote>
+      <pre><code>const fox = jump(over.lazyDog)
+if (fox.isQuick &amp;&amp; fox.isBrown) {
+  return "0123456789"
+}</code></pre>
+      <hr>
+      <div class="two">
+        <div>
+          <ul>
+            <li>Unordered list item</li>
+            <li>Another item with a nested list
+              <ul><li>Nested item</li><li>Nested item</li></ul>
+            </li>
+            <li>Third item</li>
+          </ul>
+          <ol>
+            <li>Ordered list item</li>
+            <li>Second step</li>
+            <li>Third step</li>
+          </ol>
+        </div>
+        <dl>
+          <dt>Term</dt>
+          <dd>A definition list pairs a term with its description.</dd>
+          <dt>Another term</dt>
+          <dd>Descriptions sit in the muted color.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section>
+      <h2>Table</h2>
+      <figure>
+        <table>
+          <caption>Invoices, most recent first</caption>
+          <thead>
+            <tr><th>Invoice</th><th>Customer</th><th>Status</th><th>Amount</th><th>Date</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>INV-0042</td><td>Acme Corp</td><td>Paid</td><td>$1,200.00</td><td>Sep 24, 2026</td></tr>
+            <tr><td>INV-0041</td><td>Globex</td><td>Pending</td><td>$860.00</td><td>Sep 21, 2026</td></tr>
+            <tr><td>INV-0040</td><td>Initech</td><td>Overdue</td><td>$2,410.50</td><td>Sep 12, 2026</td></tr>
+            <tr><td>INV-0039</td><td>Umbrella</td><td>Paid</td><td>$310.00</td><td>Sep 3, 2026</td></tr>
+          </tbody>
+        </table>
+        <figcaption>Wrap a table in a figure and it scrolls sideways on narrow screens instead of breaking the page.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Form</h2>
+      <form class="two" onsubmit="return false">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Ada Lovelace">
+          <label for="email">Email</label>
+          <input id="email" type="email" value="ada@example.com">
+          <small>We never share your email.</small>
+          <label for="pw">Password</label>
+          <input id="pw" type="password" value="hunter2" aria-invalid="true">
+          <small>Must be at least 12 characters.</small>
+          <label>Role
+            <select>
+              <option>Owner</option>
+              <option>Editor</option>
+              <option>Viewer</option>
+            </select>
+          </label>
+          <label for="bio">Bio</label>
+          <textarea id="bio" placeholder="A sentence or two."></textarea>
+          <label for="disabled">Disabled</label>
+          <input id="disabled" type="text" value="Read only" disabled>
+        </div>
+        <div>
+          <fieldset>
+            <legend>Notifications</legend>
+            <label><input type="checkbox" checked> Email me about activity</label>
+            <label><input type="checkbox"> Weekly digest</label>
+            <label><input type="checkbox" role="switch" checked> Push notifications</label>
+            <label><input type="checkbox" role="switch"> Marketing</label>
+          </fieldset>
+          <fieldset>
+            <legend>Plan</legend>
+            <label><input type="radio" name="plan" checked> Free</label>
+            <label><input type="radio" name="plan"> Pro</label>
+            <label><input type="radio" name="plan"> Team</label>
+          </fieldset>
+          <label for="vol">Volume</label>
+          <input id="vol" type="range" value="60">
+          <label for="file">Attachment</label>
+          <input id="file" type="file">
+          <label for="prog">Progress</label>
+          <progress id="prog" value="60" max="100"></progress>
+          <p class="row" style="margin-block-start: var(--space-6)">
+            <button type="submit">Save changes</button>
+            <button type="button" disabled>Disabled</button>
+            <a href="#" role="button">Link as button</a>
+            <input type="reset" value="Reset">
+          </p>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Card</h2>
+      <div class="two">
+        <article>
+          <header>
+            <h3>Article as card</h3>
+            <p>Header holds a title and a subtitle.</p>
+          </header>
+          <p>The body is ordinary flow content. A card has one border and nothing nested inside it draws another.</p>
+          <footer>Updated 2 hours ago</footer>
+        </article>
+        <article>
+          <header><h3>With actions</h3></header>
+          <p>Cards can hold controls. Keep them to the footer.</p>
+          <footer class="row"><button type="button">Primary</button><a href="#">Secondary link</a></footer>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disclosure</h2>
+      <details>
+        <summary>What is a details element?</summary>
+        <p>A native disclosure widget. No JavaScript, keyboard accessible, and the summary gets a chevron.</p>
+      </details>
+      <details open>
+        <summary>Open by default</summary>
+        <p>Add the open attribute to start expanded.</p>
+      </details>
+      <details>
+        <summary>Third item</summary>
+        <p>Stacked details share hairlines between them.</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Dialog</h2>
+      <p><button type="button" onclick="document.getElementById('dlg').showModal()">Open dialog</button></p>
+      <dialog id="dlg">
+        <header>
+          <h2>Delete project?</h2>
+          <p>This removes the project and all of its data.</p>
+        </header>
+        <p>You can't undo this. Type the project name to confirm.</p>
+        <label for="confirm">Project name</label>
+        <input id="confirm" type="text" placeholder="my-project">
+        <footer>
+          <button type="button" onclick="document.getElementById('dlg').close()">Cancel</button>
+          <button type="button" onclick="document.getElementById('dlg').close()">Delete</button>
+        </footer>
+      </dialog>
+    </section>
+
+    <section>
+      <h2>Icons</h2>
+      <p>Phosphor, regular weight, pasted as inline SVG with <code>aria-hidden="true"</code>. They take the size and color of the text around them.</p>
+      <p class="cluster" style="font-size: var(--text-xl)"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M72,104a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,104Zm8,40h96a8,8,0,0,0,0-16H80a8,8,0,0,0,0,16ZM232,56V208a8,8,0,0,1-11.58,7.15L192,200.94l-28.42,14.21a8,8,0,0,1-7.16,0L128,200.94,99.58,215.15a8,8,0,0,1-7.16,0L64,200.94,35.58,215.15A8,8,0,0,1,24,208V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Zm-16,0H40V195.06l20.42-10.22a8,8,0,0,1,7.16,0L96,199.06l28.42-14.22a8,8,0,0,1,7.16,0L160,199.06l28.42-14.22a8,8,0,0,1,7.16,0L216,195.06Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg> <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/></svg></p>
+      <p>Inline in a sentence <svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg> the icon sits on the baseline. In a button, put the label on the button and hide the icon.</p>
+      <p class="cluster">
+        <button type="button"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg> New invoice</button>
+        <button type="button" class="secondary"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96H80a8,8,0,0,1,0,16H56v96H200V112H176a8,8,0,0,1,0-16h24A16,16,0,0,1,216,112ZM93.66,69.66,120,43.31V136a8,8,0,0,0,16,0V43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66Z"/></svg> Export</button>
+        <button type="button" class="secondary" aria-label="Search"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg></button>
+        <button type="button" class="ghost" aria-label="Delete"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/></svg></button>
+        <a href="#"><svg aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"/></svg> Settings</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Media</h2>
+      <figure>
+        <svg width="640" height="240" viewBox="0 0 640 240" role="img" aria-label="Placeholder image" style="width:100%;height:auto;border-radius:var(--radius-lg)">
+          <rect width="640" height="240" fill="var(--color-bg-muted)"/>
+          <circle cx="320" cy="120" r="48" fill="var(--color-border-strong)"/>
+        </svg>
+        <figcaption>Images and video get a large radius and never exceed their container.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer>Henry design system · reference</footer>
+
+  <script>
+    const root = document.documentElement;
+    document.querySelector('[data-toggle-theme]').addEventListener('click', (e) => {
+      e.preventDefault();
+      const dark = root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'light' : 'dark';
+    });
+  </script>
+</body>
+</html>

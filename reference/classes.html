@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Henry · Classes</title>
+  <link rel="stylesheet" href="../henry.css">
+  <style>
+    /* Specimen chrome only. */
+    main { max-width: var(--container-max); margin-inline: auto; width: 100%; }
+    main > section { margin-block-end: var(--space-16); }
+    main > section > h2:first-child {
+      font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-fg-muted);
+      text-transform: uppercase; letter-spacing: 0.04em; margin-block-end: var(--space-6);
+      padding-block-end: var(--space-2); border-block-end: 1px solid var(--color-border);
+    }
+    .demo { padding: var(--space-4); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md); }
+    .demo > * { background: var(--color-accent-subtle); padding: var(--space-2); border-radius: var(--radius-sm); font-size: var(--text-sm); }
+    .toast { position: static; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Henry</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Variables</a></li>
+        <li><a href="elements.html">Elements</a></li>
+        <li><a href="classes.html" aria-current="page">Classes</a></li>
+        <li><a href="layouts/">Layouts</a></li>
+        <li><a href="#" data-toggle-theme>Toggle theme</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Button variants</h2>
+      <p class="cluster">
+        <button type="button">Default</button>
+        <button type="button" class="secondary">.secondary</button>
+        <button type="button" class="ghost">.ghost</button>
+        <button type="button" class="danger">.danger</button>
+        <button type="button" class="small">.small</button>
+        <button type="button" class="secondary small">.secondary.small</button>
+        <a href="#" role="button" class="secondary">link.secondary</a>
+      </p>
+      <p class="cluster">
+        <button type="button" disabled>Disabled</button>
+        <button type="button" class="secondary" disabled>Disabled</button>
+        <button type="button" class="danger" disabled>Disabled</button>
+      </p>
+    </section>
+
+    <section>
+      <h2>Badge</h2>
+      <p class="cluster">
+        <span class="badge">Draft</span>
+        <span class="badge success">Paid</span>
+        <span class="badge warning">Pending</span>
+        <span class="badge danger">Overdue</span>
+      </p>
+      <p>Inline in text: invoice <span class="badge success">Paid</span> on Sep 24.</p>
+    </section>
+
+    <section>
+      <h2>Tabs</h2>
+      <nav class="tabs" aria-label="Sections">
+        <ul>
+          <li><a href="#" aria-current="page">Overview</a></li>
+          <li><a href="#">Activity</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Billing</a></li>
+        </ul>
+      </nav>
+      <p style="margin-block-start: var(--space-4)">Tabs are a nav element with the current link marked by aria-current.</p>
+    </section>
+
+    <section>
+      <h2>Toast</h2>
+      <p>Fixed to the bottom-right corner in a real page. Shown inline here.</p>
+      <div class="toast" role="status">Changes saved. <a href="#">Undo</a></div>
+    </section>
+
+    <section>
+      <h2>Empty state</h2>
+      <div class="empty">
+        <h3>No invoices yet</h3>
+        <p>Invoices you send will show up here. Create the first one to get started.</p>
+        <p><button type="button">New invoice</button></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Layout utilities</h2>
+      <h3>.container</h3>
+      <p>Max width with centered margins. Add <code>.narrow</code> for reading-width or single-column forms.</p>
+      <h3>.grid</h3>
+      <p>Columns that wrap on their own. Set <code>--min</code> to change the minimum column width.</p>
+      <div class="grid demo"><div>one</div><div>two</div><div>three</div><div>four</div></div>
+      <h3>.stack</h3>
+      <p>Vertical spacing. Set <code>--gap</code> to change it.</p>
+      <div class="stack demo"><div>one</div><div>two</div><div>three</div></div>
+      <h3>.cluster</h3>
+      <p>Inline items that wrap. Add <code>.between</code> to push the ends apart.</p>
+      <div class="cluster between demo"><div>left</div><div>right</div></div>
+      <h3>.visually-hidden</h3>
+      <p>Hidden from sight, read by screen readers. <span class="visually-hidden">Like this.</span></p>
+    </section>
+  </main>
+
+  <footer>Henry design system · reference</footer>
+
+  <script>
+    const root = document.documentElement;
+    document.querySelector('[data-toggle-theme]').addEventListener('click', (e) => {
+      e.preventDefault();
+      const dark = root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'light' : 'dark';
+    });
+  </script>
+</body>
+</html>
