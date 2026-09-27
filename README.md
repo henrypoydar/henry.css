@@ -2,6 +2,8 @@
 
 A small, opinionated design system for responsive web apps. Inspired by Vercel's Geist and GitHub's Primer. Classless by default, like Pico: write semantic HTML, link the stylesheet, and it looks right. Classes exist only where HTML has no element for the thing.
 
+Reference site: https://henrypoydar.github.io/henry.css/
+
 ## How it works
 
 - Add `DESIGN.md` to your project and link it or copy it, so you and your coding agent knows what's what.
