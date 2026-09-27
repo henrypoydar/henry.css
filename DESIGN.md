@@ -42,7 +42,7 @@ The stylesheet lays out direct children of `<body>` by landmark. No classes need
 ```
 
 - **Header, main, footer** is a page.
-- **Add an `aside`** and it becomes an app shell. The aside is a sidebar at 64rem and wider, and stacks above the content below that.
+- **Add an `aside`** and it becomes an app shell. On phones the aside is a strip of links under the header that scrolls sideways. On tablets it's a compact sidebar beside the content, and on laptops and desktops it's full width. From tablet up, the sidebar nav stays pinned while the page scrolls.
 - **Wrap `main` content in `.container`** for a centered max width, or `.container.narrow` for forms and reading.
 
 ## Elements as components
@@ -140,12 +140,22 @@ Every color token flips automatically in dark mode.
 
 **Shadow.** `--shadow-sm`, `--shadow-md`, `--shadow-lg`. Only things that float get a shadow: menus, dialogs, toasts.
 
-**Layout.** `--container-max` (72rem), `--container-narrow` (40rem), `--sidebar-width` (16rem).
+**Layout.** `--container-max` (72rem, 80rem on desktop monitors), `--container-narrow` (40rem), `--sidebar-width` (16rem), `--sidebar-width-compact` (13rem, tablets).
 
 ## Responsiveness
 
+The system targets phones, tablets, laptops, and desktop monitors.
+
+| Tier | Width | What changes |
+| --- | --- | --- |
+| Phone | below 48rem (768px) | Sidebar becomes a scrolling link strip. Grids collapse to one column. |
+| Tablet | 48rem (768px) | Compact 13rem sidebar beside the content. |
+| Laptop | 64rem (1024px) | Full 16rem sidebar. |
+| Desktop | 90rem (1440px) | Wider container and page gutters. |
+
 - **Everything is fluid first.** Controls fill their container, media never overflows, and large type scales with `clamp()`.
-- **There is one breakpoint, at 64rem,** where the sidebar moves beside the content. Custom properties don't work in media queries, so use the literal value if you need to match it.
+- **Match the tiers with literal values.** Custom properties don't work in media queries, so write `@media (min-width: 48rem)`, `64rem`, or `90rem`. Don't add other breakpoints.
+- **Touch is separate from width.** On a coarse pointer, buttons and nav links grow to 44px targets and checkboxes get bigger, at any screen size. Use `@media (pointer: coarse)` for your own touch adjustments, not a width query.
 - **Prefer intrinsic layout** with `.grid` and `.cluster` over new media queries.
 - **Use container queries** when a component in your project must rearrange itself. Check its own width, not the viewport's.
 - **Check every page at phone width.** There should be no horizontal scroll.

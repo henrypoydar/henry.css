@@ -52,10 +52,10 @@ Layout is where classless CSS falls short, so here's the standards we use.
 - **Fluid by default.** The base layer makes type, media, tables, and forms respond before any layout rule exists. Type uses `clamp()`. A table inside a `figure` scrolls sideways instead of breaking the page.
 - **Page structure from landmarks.** The base layer lays out `body > header`, `main`, `footer`, and `aside`. Header, main, footer is a page. Add an `aside` and it's an app shell: sidebar on wide screens, stacked on narrow ones. No classes.
 - **Intrinsic layout classes.** `.container`, `.grid`, `.stack`, and `.cluster` respond to available space on their own, without media queries.
-- **Two breakpoints.** One for sidebar collapse, one for container max width. Custom properties don't work in media queries, so the values are documented in `DESIGN.md` and written as plain numbers in the file.
+- **Four tiers.** Phone, tablet at 48rem, laptop at 64rem, and desktop at 90rem. The sidebar goes from a scrolling strip, to compact, to full width, and big monitors get a wider container. Touch targets grow on coarse pointers regardless of width. `DESIGN.md` has the details.
 - **Container queries inside layouts.** A component that rearranges itself checks its own width, not the viewport's.
 
-Every reference layout must resize from phone width to wide with no horizontal scroll. `bin/snap reference/<page>.html` renders a page at desktop, dark, and phone widths with headless Chrome.
+Every reference layout must resize from phone width to wide with no horizontal scroll. `bin/snap reference/<page>.html` renders a page at phone, tablet, laptop, desktop, and dark with headless Chrome.
 
 ## License
 
