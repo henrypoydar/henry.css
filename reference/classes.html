@@ -17,6 +17,13 @@
     .demo { padding: var(--space-4); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md); }
     .demo > * { background: var(--color-accent-subtle); padding: var(--space-2); border-radius: var(--radius-sm); font-size: var(--text-sm); }
     .toast { position: static; }
+    .pattern-sample {
+      padding: var(--space-8);
+      min-height: calc(var(--space-16) * 3);
+      background-color: var(--color-bg-subtle);
+      border-radius: var(--radius-lg);
+    }
+    .pattern-sample p { color: var(--color-fg-muted); }
   </style>
 </head>
 <body>
@@ -34,6 +41,31 @@
   </header>
 
   <main>
+    <section id="patterns">
+      <h2>Background patterns</h2>
+      <p>Quiet texture for sections and empty states. Use one pattern per surface; each follows the theme and preserves the background color.</p>
+      <div class="grid">
+        <section class="pattern-sample pattern-dots">
+          <h3>Dots</h3>
+          <p>A little texture, plenty of space.</p>
+          <code>.pattern-dots</code>
+        </section>
+        <section class="pattern-sample pattern-grid">
+          <h3>Grid</h3>
+          <p>Fine lines behind your content.</p>
+          <code>.pattern-grid</code>
+        </section>
+        <section class="pattern-sample pattern-diagonal">
+          <h3>Diagonal</h3>
+          <p>A faint rhythm across the surface.</p>
+          <code>.pattern-diagonal</code>
+        </section>
+      </div>
+      <p style="margin-block-start: var(--space-4)">Patterns repeat every 8px by default. Set <code>--pattern-size</code> for spacing, <code>--pattern-stroke</code> for dot radius or line thickness, and <code>--color-pattern</code> for the marks. Use <code>background-color</code> to change the surface without clearing its pattern.</p>
+      <pre><code>&lt;section class="pattern-dots"&gt;…&lt;/section&gt;
+&lt;div class="empty pattern-grid" style="--pattern-size: var(--space-6)"&gt;…&lt;/div&gt;</code></pre>
+    </section>
+
     <section>
       <h2>Button variants</h2>
       <p class="cluster">

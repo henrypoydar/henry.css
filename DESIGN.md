@@ -5,7 +5,7 @@ This project uses [henry.css](https://github.com/henrypoydar/henry.css), a class
 ## The rules
 
 1. **Write semantic HTML first.** Most things need no class. Pick the element that means what you're building, and the stylesheet styles it.
-2. **Use a class only when this file lists one.** There are about fifteen classes in total. Don't invent new ones in markup to restyle an element.
+2. **Use a class only when this file lists one.** Don't invent new ones in markup to restyle an element.
 3. **Use tokens, never raw values.** Colors, spacing, type sizes, radii, and shadows all come from the custom properties listed below. No hex codes, no pixel spacing.
 4. **One border level.** A surface gets a border or a background shift, never both, and never a bordered box inside another bordered box.
 5. **Ink for actions, accent for meaning.** Buttons are near-black. The accent color is reserved for links, focus, selection, and checked controls. Don't use it for decoration.
@@ -96,6 +96,15 @@ These are all of them.
 - `.cluster` lays children inline and wraps them. Set `--gap`. Add `.between` to push the ends apart.
 - `.visually-hidden` hides content from sight but not from screen readers.
 
+**Background patterns.** Add `.pattern-dots`, `.pattern-grid`, or `.pattern-diagonal` to a page, section, or empty state. Use one pattern per surface. These utilities replace the background image and preserve the background color and content opacity. They follow light and dark mode. Use them sparingly on quiet surfaces, without adding a border.
+
+```html
+<section class="pattern-dots">…</section>
+<div class="empty pattern-grid">…</div>
+```
+
+Set `--pattern-size` on the patterned element to change the repeat spacing. For example, `style="--pattern-size: var(--space-6)"` makes a more open pattern. Use `background-color`, rather than the `background` shorthand, to change the surface color without clearing the pattern.
+
 ## Icons
 
 Use [Phosphor](https://phosphoricons.com/), regular weight. Paste the SVG inline and add `aria-hidden="true"`. Icons take the size and color of the surrounding text.
@@ -123,6 +132,7 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 | `--color-fg-muted` | Secondary text, nav links, table headers |
 | `--color-fg-subtle` | Placeholders, captions, icons in nav |
 | `--color-fg-on-emphasis` | Text on emphasis backgrounds |
+| `--color-pattern` | Faint neutral marks in background patterns |
 | `--color-border` | Hairlines and card borders |
 | `--color-border-strong` | Form control borders |
 | `--color-accent` | Links, focus, checked controls |
@@ -135,6 +145,8 @@ Every color token flips automatically in dark mode.
 **Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), and `--weight-heading` (650).
 
 **Spacing.** A 4px grid: `--space-1`, `-2`, `-3`, `-4`, `-5`, `-6`, `-8`, `-10`, `-12`, and `-16`. `--space-4` and `--space-6` do most of the work. `--gutter` is the fluid page edge.
+
+**Patterns.** `--pattern-size` defaults to `--space-2` (8px). It sets dot and grid spacing, or the perpendicular distance between diagonal lines. `--pattern-stroke` defaults to 1px and sets the dot radius or line thickness. `--color-pattern` is black at 4.5% opacity in light mode and white at 6% in dark mode. Override these tokens on the patterned element when needed.
 
 **Radius.** `--radius-sm` (4px), `--radius-md` (6px, controls), `--radius-lg` (8px, cards), `--radius-xl` (12px, dialogs), `--radius-full`.
 

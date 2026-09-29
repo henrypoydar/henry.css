@@ -48,6 +48,10 @@
     --space-12: 3rem;
     --space-16: 4rem;
 
+    /* Background patterns */
+    --pattern-size: var(--space-2);
+    --pattern-stroke: 1px;
+
     /* Radius */
     --radius-sm: 4px;
     --radius-md: 6px;
@@ -140,6 +144,8 @@
     --color-danger-subtle: var(--danger-100);
     --color-danger-fg: var(--danger-700);
 
+    --color-pattern: oklch(0% 0 0 / 0.045);
+
     --color-focus: var(--accent-500);
 
     color-scheme: light;
@@ -184,6 +190,8 @@
       --color-danger-subtle: oklch(27% 0.08 22);
       --color-danger-fg: oklch(80% 0.14 22);
 
+      --color-pattern: oklch(100% 0 0 / 0.06);
+
       --color-focus: var(--accent-400);
 
       --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.4);
@@ -222,6 +230,8 @@
     --color-warning-fg: oklch(84% 0.15 75);
     --color-danger-subtle: oklch(27% 0.08 22);
     --color-danger-fg: oklch(80% 0.14 22);
+
+    --color-pattern: oklch(100% 0 0 / 0.06);
 
     --color-focus: var(--accent-400);
 
@@ -853,7 +863,7 @@
 }
 
 /* ------------------------------------------------------------- utilities */
-/* Layout helpers. They respond to available space, not the viewport. */
+/* Layout helpers and optional background patterns. */
 
 @layer utilities {
   .container {
@@ -881,6 +891,27 @@
   }
   .cluster > * { margin: 0; }
   .cluster.between { justify-content: space-between; }
+
+  /* Decorative textures preserve the surface color and content opacity. */
+  .pattern-dots {
+    background-image: radial-gradient(circle, var(--color-pattern) var(--pattern-stroke), transparent var(--pattern-stroke));
+    background-size: var(--pattern-size) var(--pattern-size);
+    background-repeat: repeat;
+  }
+
+  .pattern-grid {
+    background-image:
+      linear-gradient(var(--color-pattern) var(--pattern-stroke), transparent var(--pattern-stroke)),
+      linear-gradient(90deg, var(--color-pattern) var(--pattern-stroke), transparent var(--pattern-stroke));
+    background-size: var(--pattern-size) var(--pattern-size);
+    background-repeat: repeat;
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(135deg, var(--color-pattern) 0 var(--pattern-stroke), transparent var(--pattern-stroke) var(--pattern-size));
+    background-size: auto;
+    background-repeat: repeat;
+  }
 
   .visually-hidden {
     position: absolute;

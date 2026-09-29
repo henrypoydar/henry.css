@@ -25,7 +25,7 @@ Everything sits in cascade layers, declared in this order:
 - **reset:** about twenty lines. Box sizing, margins, media defaults. Not normalize.css.
 - **base:** bare HTML elements. This is most of the file. Text, headings, links, lists, tables, forms, `article`, `nav`, `dialog`, `details`, `figure`, `code`.
 - **components:** classes for things HTML has no element for. Button variants `.secondary`, `.ghost`, `.danger`, `.small`. Status label `.badge` with `.success`, `.warning`, `.danger`. Then `.tabs`, `.toast`, `.empty`. That's ten. No more.
-- **utilities:** layout helpers: `.container` (and `.narrow`), `.grid` (set `--min`), `.stack` and `.cluster` (set `--gap`), `.cluster.between`, `.visually-hidden`.
+- **utilities:** layout helpers: `.container` (and `.narrow`), `.grid` (set `--min`), `.stack` and `.cluster` (set `--gap`), `.cluster.between`, `.visually-hidden`. Optional background textures: `.pattern-dots`, `.pattern-grid`, and `.pattern-diagonal`.
 
 Layers mean any project CSS outside a layer beats every rule in `henry.css`, so overriding the system never takes a specificity fight.
 
@@ -42,6 +42,8 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 **Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows only for things that float: menus, dialogs, toasts.
 
 **Icons are Phosphor, regular weight.** Pasted as inline SVG from [phosphoricons.com](https://phosphoricons.com/) with `aria-hidden="true"`, so they take the size and color of surrounding text and need no font or package. Label the button or link, not the icon.
+
+**Background patterns stay quiet and optional.** Dots, grids, and diagonal lines use CSS gradients with faint neutral marks that adapt to dark mode. Apply them as utilities to an existing surface, with tokens for color, spacing, and stroke. They preserve the surface color and content opacity. Use one texture sparingly, without adding a border.
 
 **Spacing on a 4px grid.** Tokens from 1 to 16, with 4 and 6 doing most of the work.
 
