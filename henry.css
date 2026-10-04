@@ -747,6 +747,77 @@
   details > :not(summary) { margin-block-end: var(--space-4); }
   details > :not(summary):last-child { margin-block-end: var(--space-4); }
 
+  /* Optional phone menu: a native disclosure with navigation in the page header. */
+  body > header:has(> details > nav) {
+    position: relative;
+    gap: 0;
+  }
+  body > header:has(> details > nav) > :is(h1, h2, p) {
+    display: flex;
+    align-items: center;
+    min-height: var(--space-10);
+    padding-inline-end: calc(var(--space-16) * 2);
+  }
+  body > header > details:has(> nav) {
+    width: 100%;
+    margin: 0;
+    border: 0;
+  }
+  body > header > details:has(> nav) > summary {
+    position: absolute;
+    inset-block-start: var(--space-3);
+    inset-inline-end: var(--gutter);
+    min-height: var(--space-10);
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+  }
+  body > header > details:has(> nav) > summary::after { content: none; }
+  body > header > details[open]:has(> nav) > summary { background: var(--color-bg-muted); }
+  body > header > details > nav {
+    margin: var(--space-3) 0 0;
+  }
+  body > header > details > nav ul { flex-direction: column; gap: var(--space-1); }
+  body > header > details > nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    white-space: normal;
+  }
+  body > header > details > nav a:is(:hover, [aria-current]) { background: var(--color-bg-muted); }
+  body > header > details > nav h3 {
+    margin: var(--space-4) var(--space-3) var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-fg-muted);
+  }
+  @media (width < 48rem) {
+    /* Keep layout utilities from revealing the desktop navigation. */
+    body > header:has(> details > nav) > nav,
+    body:has(> header > details > nav) > aside { display: none !important; }
+  }
+
+  @media (pointer: coarse) {
+    body > header > details:has(> nav) > summary {
+      min-height: calc(var(--space-10) + var(--space-1));
+    }
+    body > header:has(> details > nav) > :is(h1, h2, p) {
+      min-height: calc(var(--space-10) + var(--space-1));
+    }
+  }
+  @media (min-width: 48rem) {
+    body > header:has(> details > nav) { gap: var(--space-3) var(--space-6); }
+    body > header:has(> details > nav) > :is(h1, h2, p) {
+      min-height: 0;
+      padding-inline-end: 0;
+    }
+    body > header > details:has(> nav) { display: none; }
+    body > header:has(> details > nav) > nav { display: flex; }
+    body:has(> header > details > nav) > aside { display: block; }
+  }
+
   /* Dialog */
   dialog {
     margin: auto; /* reset zeroes margins; this restores centering */

@@ -45,6 +45,31 @@ The stylesheet lays out direct children of `<body>` by landmark. No classes need
 - **Add an `aside`** and it becomes an app shell. On phones the aside is a strip of links under the header that scrolls sideways. On tablets it's a compact sidebar beside the content, and on laptops and desktops it's full width. From tablet up, the sidebar nav stays pinned while the page scrolls.
 - **Wrap `main` content in `.container`** for a centered max width, or `.container.narrow` for forms and reading.
 
+## Optional mobile menu
+
+For a layout with many destinations, add a `<details>` directly inside the page header, with a `<summary>` labeled “Menu” and a direct child `<nav>`. You can include a decorative Phosphor menu icon in the summary.
+
+```html
+<header>
+  <h1>Acme</h1>
+  <nav aria-label="Account">…</nav>
+  <details>
+    <summary>Menu</summary>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="/" aria-current="page">Dashboard</a></li>
+        <li><a href="/settings">Settings</a></li>
+      </ul>
+    </nav>
+  </details>
+</header>
+<aside><nav aria-label="Main">…</nav></aside>
+```
+
+Below 48rem, the disclosure replaces the header's direct child navigation and the page's direct child sidebar. Opening it displays vertical links in normal flow, above the page content. Include all main destinations, account links, and help links in the mobile navigation. Keep repeated destinations and current-page markers synchronized with the desktop navigation.
+
+At 48rem and above, the disclosure is hidden, and the header navigation and sidebar return. The disclosure keeps its open state when you resize. Native keyboard controls and expanded-state announcements work without JavaScript. Navigation without this markup retains its existing behavior.
+
 ## Elements as components
 
 Reach for these before anything else.

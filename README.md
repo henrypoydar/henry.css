@@ -45,6 +45,8 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 
 **Background patterns stay quiet and optional.** Dots, grids, and diagonal lines use CSS gradients with faint neutral marks that adapt to dark mode. Apply them as utilities to an existing surface, with tokens for color, spacing, and stroke. They preserve the surface color and content opacity. Use one texture sparingly, without adding a border.
 
+**Mobile navigation is an optional native disclosure.** Add `details` with a `summary` and `nav` inside the page header to replace crowded header links and the scrolling sidebar strip below 48rem. The menu expands in normal flow and needs no JavaScript or component class. Larger screens keep the header links and sidebar.
+
 **Spacing on a 4px grid.** Tokens from 1 to 16, with 4 and 6 doing most of the work.
 
 ## Layout and responsiveness
