@@ -1,13 +1,13 @@
 # Design system: henry.css
 
-This project uses [henry.css](https://github.com/henrypoydar/henry.css), a classless stylesheet. Read this file before you write markup or CSS. The [reference site](https://henrypoydar.github.io/henry.css/) shows every element, class, and layout.
+This project uses [henry.css](https://github.com/henrypoydar/henry.css), a classless stylesheet. Read this file before you write markup or CSS. The [reference site](https://henrypoydar.github.io/henry.css/) shows every element, component, and layout.
 
 ## The rules
 
 1. **Write semantic HTML first.** Most things need no class. Pick the element that means what you're building, and the stylesheet styles it.
-2. **Use a class only when this file lists one.** Don't invent new ones in markup to restyle an element.
+2. **Use a class or custom element only when this file lists one.** Don't invent new ones in markup to restyle an element.
 3. **Use tokens, never raw values.** Colors, spacing, type sizes, radii, and shadows all come from the custom properties listed below. No hex codes, no pixel spacing.
-4. **One border level.** A surface gets a border or a background shift, never both, and never a bordered box inside another bordered box.
+4. **Tone before lines.** Separate things with a background shift or whitespace before reaching for a border. A surface gets a border or a background shift, never both, and never a box inside another box.
 5. **Ink for actions, accent for meaning.** Buttons are near-black. The accent color is reserved for links, focus, selection, and checked controls. Don't use it for decoration.
 6. **Override in your own CSS, outside any layer.** henry.css lives in cascade layers, so any unlayered rule in your stylesheet wins without a specificity fight. Don't edit henry.css in place.
 
@@ -47,14 +47,14 @@ The stylesheet lays out direct children of `<body>` by landmark. No classes need
 
 ## Optional mobile menu
 
-For a layout with many destinations, add a `<details>` directly inside the page header, with a `<summary>` labeled “Menu” and a direct child `<nav>`. You can include a decorative Phosphor menu icon in the summary.
+For a layout with many destinations, add a `<details>` directly inside the page header, with a `<summary>` and a direct child `<nav>`. Put the Phosphor list icon in the summary and wrap the word “Menu” in `.visually-hidden`, so the button shows only the icon but screen readers still announce it.
 
 ```html
 <header>
   <h1>Acme</h1>
   <nav aria-label="Account">…</nav>
   <details>
-    <summary>Menu</summary>
+    <summary><svg aria-hidden="true" viewBox="0 0 256 256">…</svg><span class="visually-hidden">Menu</span></summary>
     <nav aria-label="Mobile">
       <ul>
         <li><a href="/" aria-current="page">Dashboard</a></li>
@@ -76,7 +76,6 @@ Reach for these before anything else.
 
 | You want | Write |
 | --- | --- |
-| Card | `<article>` with optional `<header>` and `<footer>` |
 | Page title with tagline | `<hgroup><h1>…</h1><p>…</p></hgroup>` |
 | Top nav or sidebar nav | `<nav><ul><li><a>` inside `<header>` or `<aside>` |
 | Current nav item | `aria-current="page"` on the link |
@@ -95,6 +94,26 @@ Reach for these before anything else.
 | Keyboard shortcut | `<kbd>` |
 | Muted fine print | `<small>` |
 
+## Custom elements
+
+Three things HTML has no element for. They're unregistered custom elements: valid HTML, no JavaScript, no registration. The stylesheet styles them like any other tag. Use an element for a thing that stands alone, and a class for a modifier.
+
+| You want | Write |
+| --- | --- |
+| Card | `<ui-card>` with optional `<header>` and `<footer>`. A gray fill, no border. On a pattern, the sidebar, or an empty state it turns white and lifts with a small shadow. |
+| Toast | `<ui-toast role="status">` fixed to the bottom-right corner |
+| Empty state | `<ui-empty>` with a heading, a sentence, and an optional button |
+
+```html
+<ui-card>
+  <header><h3>Invoice #1042</h3><p>Due Oct 14</p></header>
+  <p>…</p>
+  <footer>Updated 2 hours ago</footer>
+</ui-card>
+```
+
+Don't use `<article>` for a card. It has no card styling, and it's reserved for content that stands on its own, like a post.
+
 ## Classes
 
 These are all of them.
@@ -110,8 +129,6 @@ These are all of them.
 
 - `.badge` is an inline status label. Add `.success`, `.warning`, or `.danger` for meaning.
 - `.tabs` goes on a `<nav>`. Mark the current link with `aria-current`.
-- `.toast` is a floating message fixed to the bottom-right corner. Give it `role="status"`.
-- `.empty` is an empty state. Put a heading, a sentence, and an optional button inside.
 
 **Layout.** These respond to available space, not the viewport.
 
@@ -125,7 +142,7 @@ These are all of them.
 
 ```html
 <section class="pattern-dots">…</section>
-<div class="empty pattern-grid">…</div>
+<ui-empty class="pattern-grid">…</ui-empty>
 ```
 
 Set `--pattern-size` on the patterned element to change the repeat spacing. For example, `style="--pattern-size: var(--space-6)"` makes a more open pattern. Use `background-color`, rather than the `background` shorthand, to change the surface color without clearing the pattern.
@@ -158,7 +175,7 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 | `--color-fg-subtle` | Placeholders, captions, icons in nav |
 | `--color-fg-on-emphasis` | Text on emphasis backgrounds |
 | `--color-pattern` | Faint neutral marks in background patterns |
-| `--color-border` | Hairlines and card borders |
+| `--color-border` | Hairlines: page header and footer, table rows, dividers |
 | `--color-border-strong` | Form control borders |
 | `--color-accent` | Links, focus, checked controls |
 | `--color-accent-subtle` | Accent tint behind selection |
@@ -173,9 +190,9 @@ Every color token flips automatically in dark mode.
 
 **Patterns.** `--pattern-size` defaults to `--space-2` (8px). It sets dot and grid spacing, or the perpendicular distance between diagonal lines. `--pattern-stroke` defaults to 1px and sets the dot radius or line thickness. `--color-pattern` is black at 4.5% opacity in light mode and white at 6% in dark mode. Override these tokens on the patterned element when needed.
 
-**Radius.** `--radius-sm` (4px), `--radius-md` (6px, controls), `--radius-lg` (8px, cards), `--radius-xl` (12px, dialogs), `--radius-full`.
+**Radius.** `--radius-sm` (4px, badges), `--radius-md` (6px, controls), `--radius-lg` (8px, cards), `--radius-xl` (12px, dialogs), `--radius-full`.
 
-**Shadow.** `--shadow-sm`, `--shadow-md`, `--shadow-lg`. Only things that float get a shadow: menus, dialogs, toasts.
+**Shadow.** `--shadow-sm`, `--shadow-md`, `--shadow-lg`. Only things that float get a shadow: menus, dialogs, toasts, and a card on a gray or textured surface.
 
 **Layout.** `--container-max` (72rem, 80rem on desktop monitors), `--container-narrow` (40rem), `--sidebar-width` (16rem), `--sidebar-width-compact` (13rem, tablets).
 
@@ -199,7 +216,8 @@ The system targets phones, tablets, laptops, and desktop monitors.
 
 ## Don't
 
-- Don't add borders to things inside a card, or cards inside cards.
+- Don't add borders to cards or to things inside a card, and don't put cards inside cards.
+- Don't use a card to group plain text, like a feature list. Use a `.grid` of headings and paragraphs.
 - Don't add vertical rules or an outer frame to tables.
 - Don't use the accent color for backgrounds, headings, or decoration.
 - Don't make buttons blue. Primary is ink, and most app actions are `.secondary`.

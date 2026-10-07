@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Henry · Classes</title>
+  <title>Henry · Components</title>
   <link rel="stylesheet" href="../henry.css">
   <style>
     /* Specimen chrome only. */
@@ -16,7 +16,7 @@
     }
     .demo { padding: var(--space-4); border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md); }
     .demo > * { background: var(--color-accent-subtle); padding: var(--space-2); border-radius: var(--radius-sm); font-size: var(--text-sm); }
-    .toast { position: static; }
+    ui-toast { position: static; }
     .pattern-sample {
       padding: var(--space-8);
       min-height: calc(var(--space-16) * 3);
@@ -33,7 +33,7 @@
       <ul>
         <li><a href="index.html">Variables</a></li>
         <li><a href="elements.html">Elements</a></li>
-        <li><a href="classes.html" aria-current="page">Classes</a></li>
+        <li><a href="components.html" aria-current="page">Components</a></li>
         <li><a href="layouts/">Layouts</a></li>
         <li><a href="#" data-toggle-theme>Toggle theme</a></li>
       </ul>
@@ -41,6 +41,43 @@
   </header>
 
   <main>
+    <section>
+      <h2>Custom elements</h2>
+      <p>Three things HTML has no element for, written as unregistered custom elements. They're valid HTML, need no JavaScript, and render as a block in every browser. An element for a thing that stands alone, a class for a modifier.</p>
+      <h3>ui-card</h3>
+      <div class="grid" style="--min: 18rem">
+        <ui-card>
+          <header>
+            <h3>A card</h3>
+            <p>Header holds a title and a subtitle.</p>
+          </header>
+          <p>The body is ordinary flow content. A card is a gray fill with no border, and nothing inside it draws one.</p>
+          <footer>Updated 2 hours ago</footer>
+        </ui-card>
+        <ui-card>
+          <header><h3>With actions</h3></header>
+          <p>Cards can hold controls. Keep them to the footer.</p>
+          <footer class="cluster"><button type="button">Primary</button><a href="#">Secondary link</a></footer>
+        </ui-card>
+      </div>
+      <p style="margin-block-start: var(--space-6)">On a pattern, the sidebar, or an empty state, a card turns white and lifts off with a small shadow.</p>
+      <div class="pattern-dots" style="background-color: var(--color-bg-subtle); --pattern-size: var(--space-6); padding: var(--space-8); border-radius: var(--radius-lg)">
+        <div class="grid" style="--min: 16rem">
+          <ui-card><header><h3>Lifted</h3><p>On a textured surface.</p></header><p>Same markup. The surface decides.</p></ui-card>
+          <ui-card><header><h3>Lifted</h3><p>On a textured surface.</p></header><p>Same markup. The surface decides.</p></ui-card>
+        </div>
+      </div>
+      <h3 style="margin-block-start: var(--space-8)">ui-toast</h3>
+      <p>Fixed to the bottom-right corner in a real page. Shown inline here.</p>
+      <ui-toast role="status">Changes saved. <a href="#">Undo</a></ui-toast>
+      <h3 style="margin-block-start: var(--space-8)">ui-empty</h3>
+      <ui-empty>
+        <h3>No invoices yet</h3>
+        <p>Invoices you send will show up here. Create the first one to get started.</p>
+        <p><button type="button">New invoice</button></p>
+      </ui-empty>
+    </section>
+
     <section id="patterns">
       <h2>Background patterns</h2>
       <p>Quiet texture for sections and empty states. Use one pattern per surface; each follows the theme and preserves the background color.</p>
@@ -63,7 +100,7 @@
       </div>
       <p style="margin-block-start: var(--space-4)">Patterns repeat every 8px by default. Set <code>--pattern-size</code> for spacing, <code>--pattern-stroke</code> for dot radius or line thickness, and <code>--color-pattern</code> for the marks. Use <code>background-color</code> to change the surface without clearing its pattern.</p>
       <pre><code>&lt;section class="pattern-dots"&gt;…&lt;/section&gt;
-&lt;div class="empty pattern-grid" style="--pattern-size: var(--space-6)"&gt;…&lt;/div&gt;</code></pre>
+&lt;ui-empty class="pattern-grid" style="--pattern-size: var(--space-6)"&gt;…&lt;/ui-empty&gt;</code></pre>
     </section>
 
     <section>
@@ -106,21 +143,6 @@
         </ul>
       </nav>
       <p style="margin-block-start: var(--space-4)">Tabs are a nav element with the current link marked by aria-current.</p>
-    </section>
-
-    <section>
-      <h2>Toast</h2>
-      <p>Fixed to the bottom-right corner in a real page. Shown inline here.</p>
-      <div class="toast" role="status">Changes saved. <a href="#">Undo</a></div>
-    </section>
-
-    <section>
-      <h2>Empty state</h2>
-      <div class="empty">
-        <h3>No invoices yet</h3>
-        <p>Invoices you send will show up here. Create the first one to get started.</p>
-        <p><button type="button">New invoice</button></p>
-      </div>
     </section>
 
     <section>

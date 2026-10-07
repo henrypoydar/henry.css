@@ -12,8 +12,8 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 
 ## Rules for changing the system
 
-- **Classless first.** Style an element before adding a class. A class is only for something HTML has no element for.
-- **Ten component classes, no more.** The components layer is capped. Adding one means removing one or getting explicit approval.
+- **Classless first.** Style an element before adding anything. An unregistered custom element, like `ui-card`, is for a thing HTML has no element for. A class is for a modifier or a layout helper that goes on an element that already means something.
+- **Three custom elements and eight component classes, no more.** The components layer is capped. Adding one means removing one or getting explicit approval.
 - **Everything uses tokens.** No raw colors or spacing values outside the tokens layer.
 - **Dark mode lives in two blocks.** The `prefers-color-scheme` block and the `[data-theme="dark"]` block hold the same overrides. Change both, every time.
 - **Stay in the layers.** Every rule goes in one of the five layers. Unlayered CSS belongs to consuming projects, not here.

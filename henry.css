@@ -77,13 +77,13 @@
     --gutter: clamp(var(--space-4), 4vw, var(--space-8));
 
     /* Gray ramp */
-    --gray-50:  oklch(98.5% 0 0);
-    --gray-100: oklch(96.5% 0 0);
-    --gray-200: oklch(92% 0 0);
-    --gray-300: oklch(86% 0 0);
+    --gray-50:  oklch(98% 0 0);
+    --gray-100: oklch(95.75% 0 0);
+    --gray-200: oklch(91% 0 0);
+    --gray-300: oklch(84% 0 0);
     --gray-400: oklch(72% 0 0);
     --gray-500: oklch(58% 0 0);
-    --gray-600: oklch(48% 0 0);
+    --gray-600: oklch(46% 0 0);
     --gray-700: oklch(40% 0 0);
     --gray-800: oklch(30% 0 0);
     --gray-900: oklch(22% 0 0);
@@ -144,7 +144,7 @@
     --color-danger-subtle: var(--danger-100);
     --color-danger-fg: var(--danger-700);
 
-    --color-pattern: oklch(0% 0 0 / 0.045);
+    --color-pattern: oklch(0% 0 0 / 0.0575);
 
     --color-focus: var(--accent-500);
 
@@ -190,7 +190,7 @@
       --color-danger-subtle: oklch(27% 0.08 22);
       --color-danger-fg: oklch(80% 0.14 22);
 
-      --color-pattern: oklch(100% 0 0 / 0.06);
+      --color-pattern: oklch(100% 0 0 / 0.075);
 
       --color-focus: var(--accent-400);
 
@@ -231,7 +231,7 @@
     --color-danger-subtle: oklch(27% 0.08 22);
     --color-danger-fg: oklch(80% 0.14 22);
 
-    --color-pattern: oklch(100% 0 0 / 0.06);
+    --color-pattern: oklch(100% 0 0 / 0.075);
 
     --color-focus: var(--accent-400);
 
@@ -346,14 +346,11 @@
   body > aside {
     padding: var(--space-2) var(--gutter);
     background: var(--color-bg-subtle);
-    border-block-end: 1px solid var(--color-border);
   }
   /* Tablet and up: a sidebar beside the content, pinned while the page scrolls */
   @media (min-width: 48rem) {
     body > aside {
       padding: var(--space-6) var(--space-3);
-      border-block-end: 0;
-      border-inline-end: 1px solid var(--color-border);
     }
     body > aside > nav {
       position: sticky;
@@ -473,19 +470,6 @@
   figure { overflow-x: auto; }
   figcaption { margin-block-start: var(--space-2); font-size: var(--text-sm); color: var(--color-fg-muted); }
   img, video { border-radius: var(--radius-lg); }
-
-  /* Card */
-  article {
-    padding: var(--space-5);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    margin-block-end: var(--space-4);
-  }
-  article > header { margin-block-end: var(--space-3); }
-  article > header :is(h1, h2, h3, h4) { margin: 0; font-size: var(--text-lg); }
-  article > header p { margin: 0; color: var(--color-fg-muted); font-size: var(--text-sm); }
-  article > footer { margin-block-start: var(--space-4); font-size: var(--text-sm); color: var(--color-fg-muted); }
 
   /* Navigation */
   nav ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
@@ -843,7 +827,9 @@
 }
 
 /* ------------------------------------------------------------ components */
-/* Classes for things HTML has no element for. Ten, and no more. */
+/* Things HTML has no element for. An element for a thing that stands alone,
+   a class for a modifier. Three custom elements and eight classes, no more.
+   The custom elements are unregistered: valid HTML, no JavaScript, styled here. */
 
 @layer components {
   /* Button variants */
@@ -882,7 +868,7 @@
     line-height: 1.5;
     color: var(--color-fg-muted);
     background: var(--color-bg-muted);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     white-space: nowrap;
   }
   .badge.success { color: var(--color-success-fg); background: var(--color-success-subtle); }
@@ -905,8 +891,27 @@
     border-color: var(--color-fg);
   }
 
+  /* Card: a tonal surface with optional header and footer. No border.
+     On a textured or gray surface it lifts off instead: white, with a soft shadow. */
+  ui-card {
+    display: block;
+    padding: var(--space-5);
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-lg);
+    margin-block-end: var(--space-4);
+  }
+  :is(.pattern-dots, .pattern-grid, .pattern-diagonal, body > aside, ui-empty) ui-card {
+    background: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+  }
+  ui-card > header { margin-block-end: var(--space-3); }
+  ui-card > header :is(h1, h2, h3, h4) { margin: 0; font-size: var(--text-lg); }
+  ui-card > header p { margin: 0; color: var(--color-fg-muted); font-size: var(--text-sm); }
+  ui-card > footer { margin-block-start: var(--space-4); font-size: var(--text-sm); color: var(--color-fg-muted); }
+
   /* Toast: a floating status message */
-  .toast {
+  ui-toast {
+    display: block;
     position: fixed;
     inset-block-end: var(--space-6);
     inset-inline-end: var(--space-6);
@@ -919,18 +924,19 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
   }
-  .toast a, .toast button { color: inherit; }
+  ui-toast a, ui-toast button { color: inherit; }
 
   /* Empty state: nothing here yet */
-  .empty {
+  ui-empty {
+    display: block;
     padding: var(--space-12) var(--space-6);
     text-align: center;
     background: var(--color-bg-subtle);
     border-radius: var(--radius-lg);
   }
-  .empty :is(h2, h3) { margin: 0 0 var(--space-2); font-size: var(--text-lg); }
-  .empty p { color: var(--color-fg-muted); max-width: 32rem; margin-inline: auto; }
-  .empty p:last-child { margin-block-start: var(--space-4); }
+  ui-empty :is(h2, h3) { margin: 0 0 var(--space-2); font-size: var(--text-lg); }
+  ui-empty p { color: var(--color-fg-muted); max-width: 32rem; margin-inline: auto; }
+  ui-empty p:last-child { margin-block-start: var(--space-4); }
 }
 
 /* ------------------------------------------------------------- utilities */

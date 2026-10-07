@@ -1,13 +1,13 @@
 # henry.css
 
-A small, opinionated design system for responsive web apps. Inspired by Vercel's Geist and GitHub's Primer. Classless by default, like Pico: write semantic HTML, link the stylesheet, and it looks right. Classes exist only where HTML has no element for the thing.
+A small, opinionated design system for responsive web apps. Inspired by Vercel's Geist and GitHub's Primer. Classless by default, like Pico: write semantic HTML, link the stylesheet, and it looks right. Where HTML has no element for a thing, there's a custom element. Classes are for modifiers and layout.
 
 Reference site: https://henrypoydar.github.io/henry.css/
 
 ## How it works
 
 - Add `DESIGN.md` to your project and link it or copy it, so you and your coding agent knows what's what.
-- Add `henry.css` to your project and link it or copy it. Write semantic HTML. Add a class only where the reference shows one. 
+- Add `henry.css` to your project and link it or copy it. Write semantic HTML. Add a class or custom element only where the reference shows one.
 
 ## How it looks and feels
 
@@ -23,8 +23,8 @@ Everything sits in cascade layers, declared in this order:
 
 - **tokens:** custom properties on `:root`, plus the dark-mode block. Copy this block alone if a project wants only the values.
 - **reset:** about twenty lines. Box sizing, margins, media defaults. Not normalize.css.
-- **base:** bare HTML elements. This is most of the file. Text, headings, links, lists, tables, forms, `article`, `nav`, `dialog`, `details`, `figure`, `code`.
-- **components:** classes for things HTML has no element for. Button variants `.secondary`, `.ghost`, `.danger`, `.small`. Status label `.badge` with `.success`, `.warning`, `.danger`. Then `.tabs`, `.toast`, `.empty`. That's ten. No more.
+- **base:** bare HTML elements. This is most of the file. Text, headings, links, lists, tables, forms, `nav`, `dialog`, `details`, `figure`, `code`.
+- **components:** things HTML has no element for. Three unregistered custom elements: `ui-card`, `ui-toast`, and `ui-empty`. Eight classes: button variants `.secondary`, `.ghost`, `.danger`, `.small`, the status label `.badge` with `.success`, `.warning`, `.danger`, and `.tabs`. That's the whole layer. No more.
 - **utilities:** layout helpers: `.container` (and `.narrow`), `.grid` (set `--min`), `.stack` and `.cluster` (set `--gap`), `.cluster.between`, `.visually-hidden`. Optional background textures: `.pattern-dots`, `.pattern-grid`, and `.pattern-diagonal`.
 
 Layers mean any project CSS outside a layer beats every rule in `henry.css`, so overriding the system never takes a specificity fight.
@@ -35,11 +35,13 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 
 **Headlines are medium weight, not bold.** Weight 650, tracking around `-0.02em` at display sizes, line-height around 1.1. Body is 400, 16px, line-height 1.5. Fewer than seven sizes in the scale.
 
-**One border level.** A surface may have a border or a background shift, never both, and never nested. Use whitespace and a single hairline to group things. Tables get horizontal hairlines only, no vertical rules, no outer frame.
+**Tone before lines.** Separate parts of a page with a background shift first, whitespace second, and a hairline last. A surface gets a border or a background shift, never both, and never nested. Cards are a gray fill with no border. The sidebar is gray with no rule beside it. Hairlines are for the page header and footer, table rows, and form controls. Tables get horizontal hairlines only, no vertical rules, no outer frame.
 
 **Ink for actions, one accent for meaning.** Primary buttons are near-black. The accent, an ultramarine, is reserved for links, focus rings, selection, and checked controls, so color always carries meaning. Eleven-step neutral gray ramp, one accent ramp, semantic success/warning/danger.
 
-**Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows only for things that float: menus, dialogs, toasts.
+**Components are custom elements, modifiers are classes.** A card, a toast, and an empty state are things that stand alone, so they're elements: `<ui-card>`, `<ui-toast>`, `<ui-empty>`. They're unregistered custom elements, which have been valid HTML and rendered as a plain block in every browser since custom elements existed. No JavaScript, no registration, and no `article` pretending to be a box. Button and badge variants stay as classes because they modify an element that already means something. Layout helpers stay as classes too, because layout is an adjective: `<ul class="grid">` keeps the list, and a wrapper element can't go between a `ul` and its `li`.
+
+**Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows are for things that float, like menus, dialogs, and toasts, and for a card that sits on a gray or textured surface. That card turns white and lifts off with the smallest shadow, because a gray card on a gray field disappears.
 
 **Icons are Phosphor, regular weight.** Pasted as inline SVG from [phosphoricons.com](https://phosphoricons.com/) with `aria-hidden="true"`, so they take the size and color of surrounding text and need no font or package. Label the button or link, not the icon.
 
