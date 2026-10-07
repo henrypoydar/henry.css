@@ -6,7 +6,7 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 
 - `henry.css` is the product. One file, in cascade layers: `tokens`, `reset`, `base`, `components`, `utilities`.
 - `DESIGN.md` is the usage guide that other projects copy in. It must match `henry.css` exactly.
-- The site is served by GitHub Pages at https://css.henrypoydar.com/, set by the `CNAME` file. Pages serves the repo root.
+- The site is served by Cloudflare Pages at https://css.henrypoydar.com/. Cloudflare deploys the repo root as is, with no build command.
 - `index.html` at the root is the intro page. Keep it in step with the intro in `README.md`.
 - `reference/` holds the reference pages: variables, elements, components, and layouts.
 - `bin/snap` renders a page with headless Chrome at phone, tablet, laptop, desktop, and dark.
@@ -30,6 +30,23 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 3. Update `DESIGN.md` when anything a consumer uses changes: an element's behavior, a class, a token, or a breakpoint.
 4. Update the decisions section of `README.md` when a design decision changes.
 5. Verify visually. Run `bin/snap reference/<page>.html` and read the PNGs it writes. Check every tier and dark mode. Headless Chrome won't shrink a window below 500px, so the script loads the page in a 390px iframe for the phone shot. Don't trust a narrow `--window-size` screenshot.
+6. If the change affects consumers, ask Henry whether to cut a release. See Releases.
+
+## Releases
+
+Projects can pin a version of the stylesheet through jsDelivr, which serves any tag in this repo with no setup:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css">
+```
+
+A tagged URL never changes. `css.henrypoydar.com/henry.css` always serves the latest `main`.
+
+When a change to `henry.css` or `DESIGN.md` affects consumers, ask Henry whether to cut a release. Don't tag without asking. To release:
+
+1. Pick the version. Bump the patch for fixes, the minor for new elements, classes, or tokens, and the major for anything that breaks existing markup.
+2. Update the pinned version in the install section of `DESIGN.md`, then commit and push.
+3. Tag the commit and push the tag: `git tag -a vX.Y.Z -m "henry.css X.Y.Z" && git push origin vX.Y.Z`.
 
 ## Writing style
 
@@ -38,5 +55,5 @@ Follow the Google developer documentation style guide for prose in docs, comment
 ## Git
 
 - The default branch is `main`, and pulls rebase.
-- Pushing to `main` deploys the reference site.
+- Pushing to `main` deploys the site, and Cloudflare clears its cache on each deploy. Pushing any other branch creates a preview deploy with its own URL.
 - Write short imperative commit subjects, like the existing history.
