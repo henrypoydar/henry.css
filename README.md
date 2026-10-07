@@ -1,6 +1,6 @@
 # henry.css
 
-A small, classless design system for responsive web apps, built to be used by coding agents. Write semantic HTML, link one stylesheet, and it looks right. No build step, no dependencies, and no utility classes to memorize. Inspired by Vercel's Geist, GitHub's Primer, and Pico.
+A small, classless design system for responsive web apps, built to be used with coding agents. Write semantic HTML, link one stylesheet, and it looks right. No build step, no dependencies, and no utility classes. Inspired by Vercel's Geist, GitHub's Primer, and Pico.
 
 Site and reference: https://css.henrypoydar.com/
 
