@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · henry.css</title>
+  <!-- Served at any missing path, so every URL here is absolute. -->
+  <link rel="stylesheet" href="/henry.css">
+  <style>
+    /* Wordmark: Henry's Hand, by Henry Poydar, CC BY 3.0 US. Site chrome only. */
+    @font-face { font-family: "Henry's Hand"; src: url("https://cdn.jsdelivr.net/gh/henrypoydar/henrys-hand-font@main/Henry's%20Hand.ttf") format("truetype"); font-display: swap; }
+    .wordmark { font-family: "Henry's Hand", var(--font-sans); font-weight: var(--weight-normal); font-size: 1.35em; line-height: 1; letter-spacing: 0; }
+    body > header .wordmark { font-size: 2em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="/" style="color: inherit; text-decoration: none"><span class="wordmark">henry.css</span></a></h1>
+    <nav class="cluster">
+      <ul>
+        <li><a href="/reference/">Reference</a></li>
+        <li><a href="/reference/layouts/">Layouts</a></li>
+        <li><a href="https://github.com/henrypoydar/henry.css">GitHub</a></li>
+      </ul>
+    </nav>
+    <details>
+      <summary><svg aria-hidden="true" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg><span class="visually-hidden">Menu</span></summary>
+      <nav aria-label="Mobile">
+        <ul>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/reference/layouts/">Layouts</a></li>
+          <li><a href="https://github.com/henrypoydar/henry.css">GitHub</a></li>
+        </ul>
+      </nav>
+    </details>
+  </header>
+
+  <main class="container narrow" style="padding-block-start: var(--space-16)">
+    <ui-empty>
+      <h2>Page not found</h2>
+      <p>There's nothing at this address. It may have moved, or the link may have a typo.</p>
+      <p class="cluster" style="justify-content: center">
+        <a href="/" role="button">Go to the intro</a>
+        <a href="/reference/" role="button" class="secondary">Browse the reference</a>
+      </p>
+    </ui-empty>
+  </main>
+
+  <footer><a href="https://github.com/henrypoydar/henry.css">GitHub</a></footer>
+</body>
+</html>

@@ -11,7 +11,11 @@ Site and reference: https://css.henrypoydar.com/
 3. **Write semantic HTML.** A form, a table, a nav, or a dialog looks right with no classes. Add a class or custom element only where `DESIGN.md` lists one.
 
 ```html
+<!-- Always the latest -->
 <link rel="stylesheet" href="https://css.henrypoydar.com/henry.css">
+
+<!-- Pinned to a release -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css">
 ```
 
 ## Why it's small

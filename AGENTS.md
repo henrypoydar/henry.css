@@ -45,7 +45,7 @@ A tagged URL never changes. `css.henrypoydar.com/henry.css` always serves the la
 When a change to `henry.css` or `DESIGN.md` affects consumers, ask Henry whether to cut a release. Don't tag without asking. To release:
 
 1. Pick the version. Bump the patch for fixes, the minor for new elements, classes, or tokens, and the major for anything that breaks existing markup.
-2. Update the pinned version in the install section of `DESIGN.md`, then commit and push.
+2. Update the pinned version everywhere it appears: the install section of `DESIGN.md`, the install snippet in `README.md`, and the code sample on the intro page, `index.html`. Then commit and push.
 3. Tag the commit and push the tag: `git tag -a vX.Y.Z -m "henry.css X.Y.Z" && git push origin vX.Y.Z`.
 
 ## Writing style
