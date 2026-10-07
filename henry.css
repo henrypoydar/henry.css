@@ -77,17 +77,17 @@
     --gutter: clamp(var(--space-4), 4vw, var(--space-8));
 
     /* Gray ramp */
-    --gray-50:  oklch(98% 0 0);
-    --gray-100: oklch(95.75% 0 0);
-    --gray-200: oklch(91% 0 0);
-    --gray-300: oklch(84% 0 0);
+    --gray-50:  oklch(98.2% 0.003 85);
+    --gray-100: oklch(95.8% 0.004 91);
+    --gray-200: oklch(93% 0.005 95);
+    --gray-300: oklch(89.5% 0.006 95);
     --gray-400: oklch(72% 0 0);
     --gray-500: oklch(58% 0 0);
     --gray-600: oklch(46% 0 0);
     --gray-700: oklch(40% 0 0);
     --gray-800: oklch(30% 0 0);
     --gray-900: oklch(22% 0 0);
-    --gray-950: oklch(15% 0 0);
+    --gray-950: oklch(17.5% 0.008 286);
 
     /* Accent ramp: Steady ultramarine, oklch(52% 0.26 275), stepped the way runsteady.com does it */
     --accent-50:  oklch(98% 0.0325 275);
@@ -113,9 +113,10 @@
     --danger-700: oklch(45% 0.17 22);
 
     /* Semantic aliases, light */
-    --color-bg: white;
-    --color-bg-subtle: var(--gray-50);
-    --color-bg-muted: var(--gray-100);
+    --color-bg: var(--gray-100);
+    --color-bg-raised: var(--gray-50);
+    --color-bg-subtle: var(--gray-200);
+    --color-bg-muted: var(--gray-300);
     --color-bg-emphasis: var(--gray-950);
     --color-bg-emphasis-hover: var(--gray-800);
     --color-bg-emphasis-active: var(--gray-700);
@@ -125,8 +126,8 @@
     --color-fg-subtle: var(--gray-500);
     --color-fg-on-emphasis: white;
 
-    --color-border: var(--gray-200);
-    --color-border-strong: var(--gray-300);
+    --color-border: oklch(17.5% 0.008 286 / 0.14);
+    --color-border-strong: oklch(17.5% 0.008 286 / 0.3);
 
     --color-accent: var(--accent-500);
     --color-accent-hover: var(--accent-600);
@@ -163,7 +164,8 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --color-bg: var(--gray-950);
-      --color-bg-subtle: var(--gray-900);
+      --color-bg-raised: var(--gray-900);
+      --color-bg-subtle: oklch(13% 0.005 286);
       --color-bg-muted: var(--gray-800);
       --color-bg-emphasis: var(--gray-50);
       --color-bg-emphasis-hover: var(--gray-200);
@@ -204,7 +206,8 @@
 
   :root[data-theme="dark"] {
     --color-bg: var(--gray-950);
-    --color-bg-subtle: var(--gray-900);
+    --color-bg-raised: var(--gray-900);
+    --color-bg-subtle: oklch(13% 0.005 286);
     --color-bg-muted: var(--gray-800);
     --color-bg-emphasis: var(--gray-50);
     --color-bg-emphasis-hover: var(--gray-200);
@@ -569,7 +572,7 @@
     padding: var(--space-2) var(--space-3);
     line-height: var(--leading-normal);
     color: var(--color-fg);
-    background: var(--color-bg);
+    background: var(--color-bg-raised);
     border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
     margin-block-end: var(--space-4);
@@ -633,7 +636,7 @@
     font: inherit;
     font-weight: var(--weight-medium);
     color: var(--color-fg);
-    background: var(--color-bg);
+    background: var(--color-bg-raised);
     border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -808,7 +811,7 @@
     width: min(32rem, calc(100% - 2 * var(--gutter)));
     padding: var(--space-6);
     color: var(--color-fg);
-    background: var(--color-bg);
+    background: var(--color-bg-raised);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
@@ -835,7 +838,7 @@
   /* Button variants */
   :is(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"]).secondary {
     color: var(--color-fg);
-    background: var(--color-bg);
+    background: var(--color-bg-raised);
     border-color: var(--color-border-strong);
   }
   :is(button, [role="button"]).secondary:hover { background: var(--color-bg-subtle); }
@@ -891,18 +894,13 @@
     border-color: var(--color-fg);
   }
 
-  /* Card: a tonal surface with optional header and footer. No border.
-     On a textured or gray surface it lifts off instead: white, with a soft shadow. */
+  /* Card: a raised surface with optional header and footer. No border, no shadow. */
   ui-card {
     display: block;
     padding: var(--space-5);
-    background: var(--color-bg-subtle);
+    background: var(--color-bg-raised);
     border-radius: var(--radius-lg);
     margin-block-end: var(--space-4);
-  }
-  :is(.pattern-dots, .pattern-grid, .pattern-diagonal, body > aside, ui-empty) ui-card {
-    background: var(--color-bg);
-    box-shadow: var(--shadow-sm);
   }
   ui-card > header { margin-block-end: var(--space-3); }
   ui-card > header :is(h1, h2, h3, h4) { margin: 0; font-size: var(--text-lg); }

@@ -2,11 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Henry</title>
-  <meta http-equiv="refresh" content="0; url=reference/">
-  <link rel="canonical" href="reference/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>henry.css · A tiny classless design system for coding agents</title>
+  <meta name="description" content="A small, classless design system. Write semantic HTML, link one stylesheet, and give your coding agent one usage guide.">
+  <link rel="stylesheet" href="henry.css">
+  <style>
+    /* Wordmark: Henry's Hand, by Henry Poydar, CC BY 3.0 US. Site chrome only. */
+    @font-face { font-family: "Henry's Hand"; src: url("https://cdn.jsdelivr.net/gh/henrypoydar/henrys-hand-font@main/Henry's%20Hand.ttf") format("truetype"); font-display: swap; }
+    main h2 { font-size: var(--text-2xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+    .wordmark { font-family: "Henry's Hand", var(--font-sans); font-weight: var(--weight-normal); font-size: 1.35em; line-height: 1; letter-spacing: 0; }
+    body > header .wordmark { font-size: 2em; }
+  </style>
 </head>
 <body>
-  <p><a href="reference/">Henry design system reference</a></p>
+  <header>
+    <h1><span class="wordmark">henry.css</span></h1>
+    <nav class="cluster">
+      <ul>
+        <li><a href="reference/">Reference</a></li>
+        <li><a href="reference/layouts/">Layouts</a></li>
+        <li><a href="https://github.com/henrypoydar/henry.css">GitHub</a></li>
+      </ul>
+    </nav>
+    <details>
+      <summary><svg aria-hidden="true" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg><span class="visually-hidden">Menu</span></summary>
+      <nav aria-label="Mobile">
+        <ul>
+          <li><a href="reference/">Reference</a></li>
+          <li><a href="reference/layouts/">Layouts</a></li>
+          <li><a href="https://github.com/henrypoydar/henry.css">GitHub</a></li>
+        </ul>
+      </nav>
+    </details>
+  </header>
+
+  <main class="container">
+    <section style="padding-block: var(--space-16); max-width: 42rem">
+      <hgroup>
+        <h1>A tiny web app design system for you and your agent</h1>
+        <p>Write semantic HTML, link one stylesheet, and it looks right. No build step, no dependencies, and no utility classes. Originally built for <a href="https://henrypoydar.com">me</a> and my agents, YMMV.</p>
+      </hgroup>
+      <p class="cluster">
+        <a href="reference/" role="button">Browse the reference</a>
+        <a href="https://github.com/henrypoydar/henry.css/blob/main/DESIGN.md" role="button" class="secondary">Read DESIGN.md</a>
+      </p>
+    </section>
+
+    <section style="padding-block: var(--space-12)">
+     <h2>How it works</h2>
+      <div class="grid" style="margin-block-start: var(--space-6)">
+        <ui-card>
+          <header><h3>1. Link the stylesheet</h3></header>
+          <p>One file, in cascade layers. Link it from this site, pin a version, or copy it into your project.</p>
+        </ui-card>
+        <ui-card>
+          <header><h3>2. Give your agent DESIGN.md</h3></header>
+          <p>Copy the usage guide into your repo. It lists every element, class, token, and rule, so your agent writes markup that fits.</p>
+        </ui-card>
+        <ui-card>
+          <header><h3>3. Write semantic HTML</h3></header>
+          <p>A form, a table, a nav, or a dialog looks right with no classes.</p>
+        </ui-card>
+      </div>
+      <pre style="margin-block-start: var(--space-6)"><code>&lt;link rel="stylesheet" href="https://css.henrypoydar.com/henry.css"&gt;
+
+&lt;ui-card&gt;
+  &lt;header&gt;&lt;h3&gt;Invoice #1042&lt;/h3&gt;&lt;p&gt;Due Oct 14&lt;/p&gt;&lt;/header&gt;
+  &lt;p&gt;Three line items, $1,200 total.&lt;/p&gt;
+  &lt;footer&gt;&lt;button&gt;Send&lt;/button&gt;&lt;/footer&gt;
+&lt;/ui-card&gt;</code></pre>
+    </section>
+
+    <section style="padding-block: var(--space-12); max-width: 42rem">
+      <h2>Built to be small</h2>
+      <p>Coding agents write better UI when the system fits in a page. henry.css keeps the surface area tiny on purpose.</p>
+      <ul>
+        <li><strong>Elements first.</strong> Most of the stylesheet styles plain HTML elements.</li>
+        <li><strong>Three custom elements.</strong> <code>ui-card</code>, <code>ui-toast</code>, and <code>ui-empty</code>, for things HTML has no element for. Unregistered, so there's no JavaScript.</li>
+        <li><strong>A short list of classes.</strong> Button and badge variants, tabs, and four layout helpers. That's all of them.</li>
+        <li><strong>Tokens for every value.</strong> Colors, spacing, type, radii, and shadows are custom properties, with dark mode built in.</li>
+        <li><strong>Overrides without a fight.</strong> Everything sits in cascade layers, so any rule in your own CSS wins.</li>
+      </ul>
+    </section>
+
+    <section style="padding-block: var(--space-12)">
+      <h2>Everything in the box</h2>
+      <dl>
+        <dt><a href="reference/">Variables</a></dt><dd>Type scale, color ramps, semantic colors, spacing, radii, and shadows.</dd>
+        <dt><a href="reference/elements.html">Elements</a></dt><dd>Headings, text, lists, tables, forms, disclosures, and dialogs, with no classes.</dd>
+        <dt><a href="reference/components.html">Components</a></dt><dd>The custom elements, every class, and the background patterns.</dd>
+        <dt><a href="reference/layouts/">Layouts</a></dt><dd>An app shell, settings, a list, sign-in, and a marketing page, from phone to desktop.</dd>
+        <dt><a href="henry.css">henry.css</a></dt><dd>The stylesheet itself.</dd>
+        <dt><a href="https://github.com/henrypoydar/henry.css/blob/main/DESIGN.md">DESIGN.md</a></dt><dd>The usage guide for you and your agent. Copy it into your project.</dd>
+        <dt><a href="https://github.com/henrypoydar/henry.css/blob/main/README.md">README.md</a></dt><dd>How the system is organized, and why it looks the way it does.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+     <nav><ul><li><a href="https://github.com/henrypoydar/henry.css">GitHub</a></li><li><a href="https://github.com/henrypoydar/hnry.css/blob/main/LICENSE">License</a></li></ul></nav>
+  </footer>
 </body>
 </html>

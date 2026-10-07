@@ -6,7 +6,9 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 
 - `henry.css` is the product. One file, in cascade layers: `tokens`, `reset`, `base`, `components`, `utilities`.
 - `DESIGN.md` is the usage guide that other projects copy in. It must match `henry.css` exactly.
-- `reference/` is the static reference site, served by GitHub Pages at https://henrypoydar.github.io/henry.css/. Pages serves the repo root, and the root `index.html` redirects to `reference/`.
+- The site is served by GitHub Pages at https://css.henrypoydar.com/, set by the `CNAME` file. Pages serves the repo root.
+- `index.html` at the root is the intro page. Keep it in step with the intro in `README.md`.
+- `reference/` holds the reference pages: variables, elements, components, and layouts.
 - `bin/snap` renders a page with headless Chrome at phone, tablet, laptop, desktop, and dark.
 - `README.md` explains the project and records design decisions.
 

@@ -1,17 +1,30 @@
 # henry.css
 
-A small, opinionated design system for responsive web apps. Inspired by Vercel's Geist and GitHub's Primer. Classless by default, like Pico: write semantic HTML, link the stylesheet, and it looks right. Where HTML has no element for a thing, there's a custom element. Classes are for modifiers and layout.
+A small, classless design system for responsive web apps, built to be used by coding agents. Write semantic HTML, link one stylesheet, and it looks right. No build step, no dependencies, and no utility classes to memorize. Inspired by Vercel's Geist, GitHub's Primer, and Pico.
 
-Reference site: https://henrypoydar.github.io/henry.css/
+Site and reference: https://css.henrypoydar.com/
 
 ## How it works
 
-- Add `DESIGN.md` to your project and link it or copy it, so you and your coding agent knows what's what.
-- Add `henry.css` to your project and link it or copy it. Write semantic HTML. Add a class or custom element only where the reference shows one.
+1. **Link the stylesheet.** One file, in cascade layers. Link it from the site, pin a version, or copy [`henry.css`](henry.css) into your project.
+2. **Give your agent `DESIGN.md`.** Copy [`DESIGN.md`](DESIGN.md) into your repo and point your agent at it. It lists every element, class, token, and rule, so the markup your agent writes fits the system.
+3. **Write semantic HTML.** A form, a table, a nav, or a dialog looks right with no classes. Add a class or custom element only where `DESIGN.md` lists one.
 
-## How it looks and feels
+```html
+<link rel="stylesheet" href="https://css.henrypoydar.com/henry.css">
+```
 
-See how it all looks here: 
+## Why it's small
+
+Coding agents write better UI when the whole system fits in a page. henry.css keeps the surface area tiny on purpose.
+
+- **Elements first.** Most of the stylesheet styles plain HTML elements.
+- **Three custom elements.** `ui-card`, `ui-toast`, and `ui-empty`, for things HTML has no element for. They're unregistered, so there's no JavaScript.
+- **A short list of classes.** Button and badge variants, tabs, and four layout helpers.
+- **Tokens for every value.** Colors, spacing, type, radii, and shadows are custom properties, with dark mode built in.
+- **Overrides without a fight.** Everything sits in cascade layers, so any rule in your own CSS wins.
+
+See every element, component, and layout on the [reference site](https://css.henrypoydar.com/reference/).
 
 ## How `henry.css` is organized
 
@@ -35,13 +48,13 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 
 **Headlines are medium weight, not bold.** Weight 650, tracking around `-0.02em` at display sizes, line-height around 1.1. Body is 400, 16px, line-height 1.5. Fewer than seven sizes in the scale.
 
-**Tone before lines.** Separate parts of a page with a background shift first, whitespace second, and a hairline last. A surface gets a border or a background shift, never both, and never nested. Cards are a gray fill with no border. The sidebar is gray with no rule beside it. Hairlines are for the page header and footer, table rows, and form controls. Tables get horizontal hairlines only, no vertical rules, no outer frame.
+**Paper, raised, and sunken.** The page is a warm paper tone, not white. Surfaces step from it in both directions: cards, form controls, and dialogs are raised a little lighter, and sidebars, code blocks, and empty states are sunken a little darker. The grays carry a faint warm tint at the light end, and the ink leans faintly cool, so the page reads as paper rather than a screen. Separate things with tone first, whitespace second, and a hairline last. Hairlines are translucent ink, so they sit right on any surface. A surface gets a border or a tone shift, never both. Tables get horizontal hairlines only, no vertical rules, no outer frame.
 
 **Ink for actions, one accent for meaning.** Primary buttons are near-black. The accent, an ultramarine, is reserved for links, focus rings, selection, and checked controls, so color always carries meaning. Eleven-step neutral gray ramp, one accent ramp, semantic success/warning/danger.
 
 **Components are custom elements, modifiers are classes.** A card, a toast, and an empty state are things that stand alone, so they're elements: `<ui-card>`, `<ui-toast>`, `<ui-empty>`. They're unregistered custom elements, which have been valid HTML and rendered as a plain block in every browser since custom elements existed. No JavaScript, no registration, and no `article` pretending to be a box. Button and badge variants stay as classes because they modify an element that already means something. Layout helpers stay as classes too, because layout is an adjective: `<ul class="grid">` keeps the list, and a wrapper element can't go between a `ul` and its `li`.
 
-**Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows are for things that float, like menus, dialogs, and toasts, and for a card that sits on a gray or textured surface. That card turns white and lifts off with the smallest shadow, because a gray card on a gray field disappears.
+**Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows only for things that float: menus, dialogs, and toasts. A card doesn't need one, because it's already lighter than whatever it sits on.
 
 **Icons are Phosphor, regular weight.** Pasted as inline SVG from [phosphoricons.com](https://phosphoricons.com/) with `aria-hidden="true"`, so they take the size and color of surrounding text and need no font or package. Label the button or link, not the icon.
 

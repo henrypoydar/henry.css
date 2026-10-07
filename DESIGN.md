@@ -1,6 +1,6 @@
 # Design system: henry.css
 
-This project uses [henry.css](https://github.com/henrypoydar/henry.css), a classless stylesheet. Read this file before you write markup or CSS. The [reference site](https://henrypoydar.github.io/henry.css/) shows every element, component, and layout.
+This project uses [henry.css](https://github.com/henrypoydar/henry.css), a classless stylesheet. Read this file before you write markup or CSS. The [reference site](https://css.henrypoydar.com/) shows every element, component, and layout.
 
 ## The rules
 
@@ -17,7 +17,7 @@ Link the stylesheet in every page's `<head>`, after the viewport meta:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://henrypoydar.github.io/henry.css/henry.css">
+<link rel="stylesheet" href="https://css.henrypoydar.com/henry.css">
 ```
 
 That URL always serves the latest version. To avoid surprise restyles in a shipped app, copy `henry.css` into the project, or pin a tag through jsDelivr:
@@ -100,7 +100,7 @@ Three things HTML has no element for. They're unregistered custom elements: vali
 
 | You want | Write |
 | --- | --- |
-| Card | `<ui-card>` with optional `<header>` and `<footer>`. A gray fill, no border. On a pattern, the sidebar, or an empty state it turns white and lifts with a small shadow. |
+| Card | `<ui-card>` with optional `<header>` and `<footer>`. A raised surface, lighter than the page, with no border or shadow. |
 | Toast | `<ui-toast role="status">` fixed to the bottom-right corner |
 | Empty state | `<ui-empty>` with a heading, a sentence, and an optional button |
 
@@ -166,8 +166,9 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 
 | Token | Use |
 | --- | --- |
-| `--color-bg` | Page background |
-| `--color-bg-subtle` | Sidebars, code blocks, empty states |
+| `--color-bg` | Page background, a warm paper tone |
+| `--color-bg-raised` | Cards, form controls, secondary buttons, dialogs |
+| `--color-bg-subtle` | Sunken surfaces: sidebars, code blocks, empty states |
 | `--color-bg-muted` | Hover and selected backgrounds, inline code |
 | `--color-bg-emphasis` | Primary buttons, toasts |
 | `--color-fg` | Body text |
@@ -175,8 +176,8 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 | `--color-fg-subtle` | Placeholders, captions, icons in nav |
 | `--color-fg-on-emphasis` | Text on emphasis backgrounds |
 | `--color-pattern` | Faint neutral marks in background patterns |
-| `--color-border` | Hairlines: page header and footer, table rows, dividers |
-| `--color-border-strong` | Form control borders |
+| `--color-border` | Hairlines: page header and footer, table rows, dividers. Translucent ink, so it works on any surface. |
+| `--color-border-strong` | Form control borders. Also translucent ink. |
 | `--color-accent` | Links, focus, checked controls |
 | `--color-accent-subtle` | Accent tint behind selection |
 | `--color-success`, `--color-warning`, `--color-danger` | Status fills |
@@ -192,7 +193,7 @@ Every color token flips automatically in dark mode.
 
 **Radius.** `--radius-sm` (4px, badges), `--radius-md` (6px, controls), `--radius-lg` (8px, cards), `--radius-xl` (12px, dialogs), `--radius-full`.
 
-**Shadow.** `--shadow-sm`, `--shadow-md`, `--shadow-lg`. Only things that float get a shadow: menus, dialogs, toasts, and a card on a gray or textured surface.
+**Shadow.** `--shadow-sm`, `--shadow-md`, `--shadow-lg`. Only things that float get a shadow: menus, dialogs, and toasts.
 
 **Layout.** `--container-max` (72rem, 80rem on desktop monitors), `--container-narrow` (40rem), `--sidebar-width` (16rem), `--sidebar-width-compact` (13rem, tablets).
 
@@ -217,7 +218,7 @@ The system targets phones, tablets, laptops, and desktop monitors.
 ## Don't
 
 - Don't add borders to cards or to things inside a card, and don't put cards inside cards.
-- Don't use a card to group plain text, like a feature list. Use a `.grid` of headings and paragraphs.
+- Use cards sparingly for plain text, like a feature list. Most of the time a `.grid` of headings and paragraphs is enough. Save cards for a few short items you want to stand apart, like numbered steps.
 - Don't add vertical rules or an outer frame to tables.
 - Don't use the accent color for backgrounds, headings, or decoration.
 - Don't make buttons blue. Primary is ink, and most app actions are `.secondary`.

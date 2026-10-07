@@ -6,6 +6,10 @@
   <title>Henry · Components</title>
   <link rel="stylesheet" href="../henry.css">
   <style>
+    /* Wordmark: Henry's Hand, by Henry Poydar, CC BY 3.0 US. Site chrome only. */
+    @font-face { font-family: "Henry's Hand"; src: url("https://cdn.jsdelivr.net/gh/henrypoydar/henrys-hand-font@main/Henry's%20Hand.ttf") format("truetype"); font-display: swap; }
+    .wordmark { font-family: "Henry's Hand", var(--font-sans); font-weight: var(--weight-normal); font-size: 1.35em; line-height: 1; letter-spacing: 0; }
+    body > header .wordmark { font-size: 2em; }
     /* Specimen chrome only. */
     main { max-width: var(--container-max); margin-inline: auto; width: 100%; }
     main > section { margin-block-end: var(--space-16); }
@@ -28,7 +32,7 @@
 </head>
 <body>
   <header>
-    <h1>Henry</h1>
+    <h1><a href="../" style="color: inherit; text-decoration: none"><span class="wordmark">henry.css</span></a></h1>
     <nav>
       <ul>
         <li><a href="index.html">Variables</a></li>
@@ -38,6 +42,18 @@
         <li><a href="#" data-toggle-theme>Toggle theme</a></li>
       </ul>
     </nav>
+    <details>
+      <summary><svg aria-hidden="true" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg><span class="visually-hidden">Menu</span></summary>
+      <nav aria-label="Mobile">
+        <ul>
+          <li><a href="index.html">Variables</a></li>
+          <li><a href="elements.html">Elements</a></li>
+          <li><a href="components.html" aria-current="page">Components</a></li>
+          <li><a href="layouts/">Layouts</a></li>
+          <li><a href="#" data-toggle-theme>Toggle theme</a></li>
+        </ul>
+      </nav>
+    </details>
   </header>
 
   <main>
@@ -51,7 +67,7 @@
             <h3>A card</h3>
             <p>Header holds a title and a subtitle.</p>
           </header>
-          <p>The body is ordinary flow content. A card is a gray fill with no border, and nothing inside it draws one.</p>
+          <p>The body is ordinary flow content. A card is a raised surface with no border or shadow, and nothing inside it draws one.</p>
           <footer>Updated 2 hours ago</footer>
         </ui-card>
         <ui-card>
@@ -60,11 +76,11 @@
           <footer class="cluster"><button type="button">Primary</button><a href="#">Secondary link</a></footer>
         </ui-card>
       </div>
-      <p style="margin-block-start: var(--space-6)">On a pattern, the sidebar, or an empty state, a card turns white and lifts off with a small shadow.</p>
-      <div class="pattern-dots" style="background-color: var(--color-bg-subtle); --pattern-size: var(--space-6); padding: var(--space-8); border-radius: var(--radius-lg)">
+      <p style="margin-block-start: var(--space-6)">A card is the raised surface, so it reads the same on the paper page, a sunken sidebar, or an empty state.</p>
+      <div style="background-color: var(--color-bg-subtle); padding: var(--space-8); border-radius: var(--radius-lg)">
         <div class="grid" style="--min: 16rem">
-          <ui-card><header><h3>Lifted</h3><p>On a textured surface.</p></header><p>Same markup. The surface decides.</p></ui-card>
-          <ui-card><header><h3>Lifted</h3><p>On a textured surface.</p></header><p>Same markup. The surface decides.</p></ui-card>
+          <ui-card><header><h3>On a sunken surface</h3><p>Same markup.</p></header><p>Raised stays raised.</p></ui-card>
+          <ui-card><header><h3>On a sunken surface</h3><p>Same markup.</p></header><p>Raised stays raised.</p></ui-card>
         </div>
       </div>
       <h3 style="margin-block-start: var(--space-8)">ui-toast</h3>
@@ -163,11 +179,11 @@
     </section>
   </main>
 
-  <footer>Henry design system · reference</footer>
+  <footer><a href="https://github.com/henrypoydar/henry.css">GitHub</a></footer>
 
   <script>
     const root = document.documentElement;
-    document.querySelector('[data-toggle-theme]').addEventListener('click', (e) => {
+    for (const toggle of document.querySelectorAll('[data-toggle-theme]')) toggle.addEventListener('click', (e) => {
       e.preventDefault();
       const dark = root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
       root.dataset.theme = dark ? 'light' : 'dark';
