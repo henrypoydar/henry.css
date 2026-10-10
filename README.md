@@ -1,6 +1,6 @@
 # henry.css
 
-A small, classless design system for responsive web apps, built to be used with coding agents. Write semantic HTML, link one stylesheet, and it looks right. No build step, no dependencies, and no utility classes. Inspired by Vercel's Geist, GitHub's Primer, and Pico.
+A small, classless design system for responsive web apps, built to be used with coding agents. Write semantic HTML, link one stylesheet, and it looks ok. No build step, no dependencies, and no utility classes. Inspired by Vercel's Geist, GitHub's Primer, and Pico. Built for [me](https://henrypoydar.com) and my projects, YMMV. 
 
 Site and reference: https://css.henrypoydar.com/
 
@@ -16,7 +16,7 @@ Site and reference: https://css.henrypoydar.com/
 
 ## Why it's small
 
-Coding agents write better UI when the whole system fits in a page. henry.css keeps the surface area tiny on purpose.
+Coding agents write better UI when the whole system fits into a context window. henry.css keeps the surface area tiny on purpose.
 
 - **Elements first.** Most of the stylesheet styles plain HTML elements.
 - **Three custom elements.** `ui-card`, `ui-toast`, and `ui-empty`, for things HTML has no element for. They're unregistered, so there's no JavaScript.
@@ -50,13 +50,13 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 
 **Paper, raised, and sunken.** The page is a warm paper tone, not white. Surfaces step from it in both directions: cards, form controls, and dialogs are raised a little lighter, and sidebars, code blocks, and empty states are sunken a little darker. The grays carry a faint warm tint at the light end, and the ink leans faintly cool, so the page reads as paper rather than a screen. Separate things with tone first, whitespace second, and a hairline last. Hairlines are translucent ink, so they sit right on any surface. A surface gets a border or a tone shift, never both. Tables get horizontal hairlines only, no vertical rules, no outer frame.
 
-**Ink for actions, one accent for meaning.** Primary buttons are near-black. The accent, an ultramarine, is reserved for links, focus rings, selection, and checked controls, so color always carries meaning. Eleven-step neutral gray ramp, one accent ramp, semantic success/warning/danger.
+**Ink for actions, one accent for meaning.** Primary buttons are near-black. The accent, an ultramarine blue, is reserved for links, focus rings, selection, and checked controls, so color always carries meaning. Eleven-step neutral gray ramp, one accent ramp, semantic success/warning/danger.
 
 **Components are custom elements, modifiers are classes.** A card, a toast, and an empty state are things that stand alone, so they're elements: `<ui-card>`, `<ui-toast>`, `<ui-empty>`. They're unregistered custom elements, which have been valid HTML and rendered as a plain block in every browser since custom elements existed. No JavaScript, no registration, and no `article` pretending to be a box. Button and badge variants stay as classes because they modify an element that already means something. Layout helpers stay as classes too, because layout is an adjective: `<ul class="grid">` keeps the list, and a wrapper element can't go between a `ul` and its `li`.
 
 **Small radii, subtle shadows.** 6px on controls, 8px to 12px on surfaces. Shadows only for things that float: menus, dialogs, and toasts. A card doesn't need one, because it's already lighter than whatever it sits on.
 
-**Icons are Phosphor, regular weight.** Pasted as inline SVG from [phosphoricons.com](https://phosphoricons.com/) with `aria-hidden="true"`, so they take the size and color of surrounding text and need no font or package. Label the button or link, not the icon.
+**Icons are Phosphor, regular weight.** Pasted as inline SVG from the excellent [phosphoricons.com](https://phosphoricons.com/) library with `aria-hidden="true"`, so they take the size and color of surrounding text and need no font or package. Label the button or link, not the icon.
 
 **Background patterns stay quiet and optional.** Dots, grids, and diagonal lines use CSS gradients with faint neutral marks that adapt to dark mode. Apply them as utilities to an existing surface, with tokens for color, spacing, and stroke. They preserve the surface color and content opacity. Use one texture sparingly, without adding a border.
 
