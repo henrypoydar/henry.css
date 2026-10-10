@@ -34,18 +34,18 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 
 ## Releases
 
-Projects can pin a version of the stylesheet through jsDelivr, which serves any tag in this repo with no setup:
+Projects link the stylesheet through jsDelivr, which serves any tag in this repo with no setup:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@latest/henry.css">
 ```
 
-A tagged URL never changes. `css.henrypoydar.com/henry.css` always serves the latest `main`.
+`@latest` serves the newest tag, so a change reaches projects only when you tag a release. jsDelivr caches `@latest` for up to 12 hours, and browsers can keep it for a week. An exact tag, like `@v1.0.0`, never changes. `css.henrypoydar.com/henry.css` serves `main` on every push and is for the site itself.
 
 When a change to `henry.css` or `DESIGN.md` affects consumers, ask Henry whether to cut a release. Don't tag without asking. To release:
 
 1. Pick the version. Bump the patch for fixes, the minor for new elements, classes, or tokens, and the major for anything that breaks existing markup.
-2. Update the pinned version everywhere it appears: the install section of `DESIGN.md`, the install snippet in `README.md`, and the code sample on the intro page, `index.html`. Then commit and push.
+2. Commit and push. The docs link `@latest`, so they need no version edits.
 3. Tag the commit and push the tag: `git tag -a vX.Y.Z -m "henry.css X.Y.Z" && git push origin vX.Y.Z`.
 
 ## Writing style

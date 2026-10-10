@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="henry.css">
   <style>
     /* Wordmark: Henry's Hand, by Henry Poydar, CC BY 3.0 US. Site chrome only. */
-    @font-face { font-family: "Henry's Hand"; src: url("https://cdn.jsdelivr.net/gh/henrypoydar/henrys-hand-font@main/Henry's%20Hand.ttf") format("truetype"); font-display: swap; }
+    @font-face { font-family: "Henry's Hand"; src: url("https://cdn.jsdelivr.net/gh/henrypoydar/henrys-hand@main/HenrysHand-Variable.woff2") format("woff2"); font-weight: 300 700; font-display: swap; }
     main h2 { font-size: var(--text-2xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
-    .wordmark { font-family: "Henry's Hand", var(--font-sans); font-weight: var(--weight-normal); font-size: 1.35em; line-height: 1; letter-spacing: 0; }
+    .wordmark { font-family: "Henry's Hand", var(--font-sans); font-weight: var(--weight-semibold); font-size: 1.35em; line-height: 1; letter-spacing: 0; }
     body > header .wordmark { font-size: 2em; }
   </style>
 </head>
@@ -53,7 +53,7 @@
       <div class="grid" style="margin-block-start: var(--space-6)">
         <ui-card>
           <header><h3>1. Link the stylesheet</h3></header>
-          <p>One file, in cascade layers. Link it from this site, pin a version, or copy it into your project.</p>
+          <p>One file, in cascade layers. Link the latest release from jsDelivr, pin an exact one, or copy it into your project.</p>
         </ui-card>
         <ui-card>
           <header><h3>2. Give your agent DESIGN.md</h3></header>
@@ -64,13 +64,9 @@
           <p>A form, a table, a nav, or a dialog looks right with no classes.</p>
         </ui-card>
       </div>
-      <!-- Cloudflare reads "henry.css@v1.0.0" as an email address. email_off stops it from rewriting the URL. -->
+      <!-- Cloudflare reads "henry.css@latest" as an email address. email_off stops it from rewriting the URL. -->
       <!--email_off-->
-      <pre style="margin-block-start: var(--space-6)"><code>&lt;!-- Always the latest --&gt;
-&lt;link rel="stylesheet" href="https://css.henrypoydar.com/henry.css"&gt;
-
-&lt;!-- Pinned to a release --&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css"&gt;
+      <pre style="margin-block-start: var(--space-6)"><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@latest/henry.css"&gt;
 
 &lt;ui-card&gt;
   &lt;header&gt;&lt;h3&gt;Invoice #1042&lt;/h3&gt;&lt;p&gt;Due Oct 14&lt;/p&gt;&lt;/header&gt;

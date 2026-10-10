@@ -17,14 +17,10 @@ Link the stylesheet in every page's `<head>`, after the viewport meta:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://css.henrypoydar.com/henry.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@latest/henry.css">
 ```
 
-That URL always serves the latest version. To avoid surprise restyles in a shipped app, copy `henry.css` into the project, or pin a tag through jsDelivr:
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css">
-```
+That URL serves the newest release. To avoid surprise restyles in a shipped app, pin an exact release, like `@v1.0.0` in place of `@latest`, or copy `henry.css` into the project.
 
 The stylesheet imports Inter from Google Fonts and falls back to the system font. Dark mode follows the operating system. Set `data-theme="light"` or `data-theme="dark"` on `<html>` to force one.
 

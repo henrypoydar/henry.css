@@ -6,16 +6,12 @@ Site and reference: https://css.henrypoydar.com/
 
 ## How it works
 
-1. **Link the stylesheet.** One file, in cascade layers. Link it from the site, pin a version, or copy [`henry.css`](henry.css) into your project.
+1. **Link the stylesheet.** One file, in cascade layers. Link the latest release from jsDelivr, pin an exact one, or copy [`henry.css`](henry.css) into your project.
 2. **Give your agent `DESIGN.md`.** Copy [`DESIGN.md`](DESIGN.md) into your repo and point your agent at it. It lists every element, class, token, and rule, so the markup your agent writes fits the system.
 3. **Write semantic HTML.** A form, a table, a nav, or a dialog looks right with no classes. Add a class or custom element only where `DESIGN.md` lists one.
 
 ```html
-<!-- Always the latest -->
-<link rel="stylesheet" href="https://css.henrypoydar.com/henry.css">
-
-<!-- Pinned to a release -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@v1.0.0/henry.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/henrypoydar/henry.css@latest/henry.css">
 ```
 
 ## Why it's small
