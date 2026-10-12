@@ -14,11 +14,11 @@
     main { max-width: var(--container-max); margin-inline: auto; width: 100%; }
     section { margin-block-end: var(--space-16); }
     h2 { font-size: var(--text-xs); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-block: 0 var(--space-6); }
-    .label { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-fg-subtle); }
+    .label { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0; color: var(--color-fg-subtle); }
 
     .type > div { display: grid; gap: var(--space-2) var(--space-4); align-items: baseline; padding-block: var(--space-4); border-block-end: 1px solid var(--color-border); }
     .type > div > * { min-width: 0; margin: 0; }
-    @media (min-width: 40rem) { .type > div { grid-template-columns: 8rem minmax(0, 1fr); } }
+    @media (min-width: 40rem) { .type > div { grid-template-columns: 9rem minmax(0, 1fr); } }
     .ramp { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-block-end: var(--space-6); }
     .ramp div { width: 4.5rem; aspect-ratio: 1; border-radius: var(--radius-md); outline: 1px solid var(--color-border); outline-offset: -1px; display: flex; align-items: end; padding: var(--space-2); font-family: var(--font-mono); font-size: var(--text-xs); }
     .semantic { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-3); }
@@ -62,11 +62,11 @@
   <section class="type">
     <h2>Type scale</h2>
     <div><span class="label">brand · 850</span><p style="font-size:var(--text-xl);font-weight:var(--weight-brand);line-height:var(--leading-snug)">Acme</p></div>
-    <div><span class="label">3xl · 650 · tight</span><p style="font-size:var(--text-3xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-tight);line-height:var(--leading-tight)">The quick brown fox jumps over the lazy dog</p></div>
-    <div><span class="label">2xl · 650 · tight</span><p style="font-size:var(--text-2xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-tight);line-height:var(--leading-tight)">The quick brown fox jumps over the lazy dog</p></div>
-    <div><span class="label">xl · 650 · tight</span><p style="font-size:var(--text-xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-tight);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</p></div>
-    <div><span class="label">lg · 500</span><p style="font-size:var(--text-lg);font-weight:var(--weight-medium);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</p></div>
-    <div><span class="label">md · 400</span><p>The quick brown fox jumps over the lazy dog. Body text sits at 16px with a line height of 1.5, which is where most reading happens, so it gets the most room.</p></div>
+    <div><span class="label">3xl · 650 · −0.022</span><p style="font-size:var(--text-3xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-3xl);line-height:var(--leading-tight)">The quick brown fox jumps over the lazy dog</p></div>
+    <div><span class="label">2xl · 650 · −0.02</span><p style="font-size:var(--text-2xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-2xl);line-height:var(--leading-tight)">The quick brown fox jumps over the lazy dog</p></div>
+    <div><span class="label">xl · 650 · −0.017</span><p style="font-size:var(--text-xl);font-weight:var(--weight-heading);letter-spacing:var(--tracking-xl);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</p></div>
+    <div><span class="label">lg · 500 · −0.014</span><p style="font-size:var(--text-lg);font-weight:var(--weight-medium);letter-spacing:var(--tracking-lg);line-height:var(--leading-snug)">The quick brown fox jumps over the lazy dog</p></div>
+    <div><span class="label">md · 400 · −0.011</span><p>The quick brown fox jumps over the lazy dog. Body text sits at 16px with a line height of 1.5, which is where most reading happens, so it gets the most room.</p></div>
     <div><span class="label">sm · 400</span><p style="font-size:var(--text-sm)">The quick brown fox jumps over the lazy dog. Secondary text, table cells, and form help.</p></div>
     <div><span class="label">xs · 400</span><p style="font-size:var(--text-xs)">The quick brown fox jumps over the lazy dog. Labels and captions only.</p></div>
     <div><span class="label">mono</span><p style="font-family:var(--font-mono);font-size:var(--text-sm)">const fox = jump(over.lazyDog) // 0123456789</p></div>

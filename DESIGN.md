@@ -181,7 +181,7 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 
 Every color token flips automatically in dark mode.
 
-**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), `--weight-heading` (650), and `--weight-brand` (850). The brand weight is for a product name, like the title in the page header. `--tracking-tight` (`-0.025em`) tightens `h1` and `h2`. Use it on your own display text 20px and up. Smaller text uses the platform font's own spacing.
+**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), `--weight-heading` (650), and `--weight-brand` (850). The brand weight is for a product name, like the title in the page header. Tracking follows Inter's size-based formula, one token per size: `--tracking-md` (`-0.011em`, body), `--tracking-lg` (`-0.014em`), `--tracking-xl` (`-0.017em`), `--tracking-2xl` (`-0.02em`), and `--tracking-3xl` (`-0.022em`). Headings use the token for their size. When you set your own `font-size` to a size token, set `letter-spacing` to the matching tracking token. `--tracking-tight` remains as an alias for `--tracking-3xl`. Code is set at 0.
 
 **Spacing.** A 4px grid: `--space-1`, `-2`, `-3`, `-4`, `-5`, `-6`, `-8`, `-10`, `-12`, and `-16`. `--space-4` and `--space-6` do most of the work. `--gutter` is the fluid page edge.
 
