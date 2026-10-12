@@ -44,9 +44,11 @@ Layers mean any project CSS outside a layer beats every rule in `henry.css`, so 
 
 ## Decisions
 
-**Base font is Inter.** Loaded from Google Fonts by an `@import` at the top of `henry.css` with its optical size axis, so it switches to a display cut at heading sizes the way San Francisco does. The stack falls back to `system-ui`, which is a near metric match, so nothing shifts much if the font fails to load. Self-host the variable file later if the Google Fonts dependency bothers you.
+**Base font is Inter.** Loaded from Google Fonts by an `@import` at the top of `henry.css` with its optical size axis, so it switches to a display cut at heading sizes the way San Francisco does. It has true italics and a weight range of 400 to 900, so the 650 heading and 850 brand weights interpolate. Archivo, Geist, Mona Sans, and Roboto Flex were tried as alternatives. Each lost on spacing, italics, or character. The stack falls back to `system-ui`, which is a near metric match, so nothing shifts much if the font fails to load. Self-host the variable file later if the Google Fonts dependency bothers you.
 
-**Headlines are medium weight, not bold.** Weight 650, tracking around `-0.02em` at display sizes, line-height around 1.1. Body is 400, 16px, line-height 1.5. Fewer than seven sizes in the scale.
+**Headlines are medium weight, not bold.** Weight 650, tracking around `-0.02em` at display sizes, line-height around 1.1. Body is 400, 16px, line-height 1.5, with no extra tracking. Fewer than seven sizes in the scale.
+
+**The brand name is heavy.** The page header's title uses `--weight-brand`, 850, so a product name like Acme reads as a wordmark, not a heading. Sidebar links are inset by the gutter minus their own padding, so their icons line up with the brand at every width.
 
 **Paper, raised, and sunken.** The page is a warm paper tone, not white. Surfaces step from it in both directions: cards, form controls, and dialogs are raised a little lighter, and sidebars, code blocks, and empty states are sunken a little darker. The grays carry a faint warm tint at the light end, and the ink leans faintly cool, so the page reads as paper rather than a screen. Separate things with tone first, whitespace second, and a hairline last. Hairlines are translucent ink, so they sit right on any surface. A surface gets a border or a tone shift, never both. Tables get horizontal hairlines only, no vertical rules, no outer frame.
 

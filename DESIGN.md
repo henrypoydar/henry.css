@@ -30,7 +30,7 @@ The stylesheet lays out direct children of `<body>` by landmark. No classes need
 
 ```html
 <body>
-  <header>…</header>   <!-- top bar: title on the left, nav on the right -->
+  <header>…</header>   <!-- top bar: brand name on the left, nav on the right -->
   <aside>…</aside>     <!-- optional sidebar -->
   <main>…</main>
   <footer>…</footer>
@@ -181,7 +181,7 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 
 Every color token flips automatically in dark mode.
 
-**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), and `--weight-heading` (650).
+**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), `--weight-heading` (650), and `--weight-brand` (850). The brand weight is for a product name, like the title in the page header. Tracking is `--tracking-tight` for display headings and `--tracking-normal` for everything else.
 
 **Spacing.** A 4px grid: `--space-1`, `-2`, `-3`, `-4`, `-5`, `-6`, `-8`, `-10`, `-12`, and `-16`. `--space-4` and `--space-6` do most of the work. `--gutter` is the fluid page edge.
 
