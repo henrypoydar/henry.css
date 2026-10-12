@@ -9,6 +9,7 @@ This repo is henry.css, a classless design system. It has no build step, no pack
 - The site is served by Cloudflare Pages at https://css.henrypoydar.com/. Cloudflare deploys the repo root as is, with no build command.
 - `index.html` at the root is the intro page. Keep it in step with the intro in `README.md`.
 - `reference/` holds the reference pages: variables, elements, components, and layouts.
+- `fonts/` holds the site's wordmark font, Henry's Hand SemiBold subset to the letters in "henry.css", with its OFL license. It's site chrome only, never part of `henry.css`. If the wordmark text changes, re-subset from the `henrypoydar/henrys-hand` repo.
 - `bin/snap` renders a page with headless Chrome at phone, tablet, laptop, desktop, and dark.
 - `README.md` explains the project and records design decisions.
 

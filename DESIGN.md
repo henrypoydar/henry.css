@@ -22,7 +22,7 @@ Link the stylesheet in every page's `<head>`, after the viewport meta:
 
 That URL serves the newest release. To avoid surprise restyles in a shipped app, pin an exact release, like `@v1.0.0` in place of `@latest`, or copy `henry.css` into the project.
 
-The stylesheet imports Inter from Google Fonts and falls back to the system font. Dark mode follows the operating system. Set `data-theme="light"` or `data-theme="dark"` on `<html>` to force one.
+Text uses the system font stack, so the stylesheet loads no web fonts. Set `--font-sans` to use your own. Dark mode follows the operating system. Set `data-theme="light"` or `data-theme="dark"` on `<html>` to force one.
 
 ## Page structure
 
@@ -181,7 +181,7 @@ Use semantic color tokens in project CSS. The raw ramps exist to build them, not
 
 Every color token flips automatically in dark mode.
 
-**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), `--weight-heading` (650), and `--weight-brand` (850). The brand weight is for a product name, like the title in the page header. Tracking is `--tracking-tight` for display headings and `--tracking-normal` for everything else.
+**Type.** `--font-sans` and `--font-mono`. Sizes are `--text-xs`, `--text-sm`, `--text-md`, `--text-lg`, `--text-xl`, `--text-2xl`, and `--text-3xl`. The two largest are fluid. Weights are `--weight-normal` (400), `--weight-medium` (500), `--weight-semibold` (600), `--weight-heading` (650), and `--weight-brand` (850). The brand weight is for a product name, like the title in the page header. `--tracking-tight` (`-0.025em`) tightens `h1` and `h2`. Use it on your own display text 20px and up. Smaller text uses the platform font's own spacing.
 
 **Spacing.** A 4px grid: `--space-1`, `-2`, `-3`, `-4`, `-5`, `-6`, `-8`, `-10`, `-12`, and `-16`. `--space-4` and `--space-6` do most of the work. `--gutter` is the fluid page edge.
 
